@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CSTQuizlet.Views"
-             mc:Ignorable="d" Height="317.895" Width="393.684">
-    <Grid Background="#FFC0D541" Margin="0,0,-0.5,0">
+             mc:Ignorable="d" Height="409.39" Width="544.316">
+    <Grid Margin="-51,-40,-47.5,-34.5" Background="#FFC0D541" >
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -20,6 +20,20 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="Create a Question" HorizontalAlignment="Left" Margin="37,10,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Grid.ColumnSpan="3" Width="163" FontSize="18" Grid.Column="1"/>
+        <Label x:Name="label" Content="Create a Question" HorizontalAlignment="Left" Margin="106.5,30,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Grid.ColumnSpan="3" Width="179" FontSize="20" Grid.Column="1"/>
+        <Label x:Name="label1" Content="Question:" HorizontalAlignment="Left" Margin="9.5,0,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Width="84" FontWeight="Bold" Foreground="White" Grid.Column="1"/>
+        <TextBox x:Name="textBox" Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="106.5,8,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Write Question Here..." VerticalAlignment="Top" Width="238"/>
+        <Label x:Name="label2" Content="Answer Type:" HorizontalAlignment="Left" Margin="112,47,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboBox" Text="Choose Answer Type" Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Margin="106.5,57,0,0" Grid.Row="1" VerticalAlignment="Top" Width="151">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background> 
+            <ComboBoxItem Name="multipleChoiceItem">Multiple Choice</ComboBoxItem>
+            <ComboBoxItem Name="shortAnswerItem">Short Answer</ComboBoxItem>
+            <ComboBoxItem Name="trueFalseItem">True or False</ComboBoxItem>
+        </ComboBox>
     </Grid>
 </UserControl>

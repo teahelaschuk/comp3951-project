@@ -9,6 +9,12 @@
         mc:Ignorable="d"
         Title="CST QUizlet" Height="614.035" Width="780.439" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <DataTemplate x:Name="createViewTemplate" DataType="{x:Type viewmodels:CreateViewModel}">
+            <views:CreateView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="forumViewTemplate" DataType="{x:Type viewmodels:ForumViewModel}">
+            <views:ForumView DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,7 +34,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <DockPanel Background="Cornsilk" Grid.Row="1" Grid.Column="0" Grid.RowSpan="5">
-            <TreeView Background="#FFC0D541">
+            <TreeView Background="#1BB094">
                 <TreeViewItem Header="Level 1" Foreground="White">
                     <Button Content="COMP1100"/>
                     <Button Content="COMP1111"/>
@@ -62,10 +68,10 @@
         </DockPanel>
         <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Fill="#05406A" Margin="0,0,-0.5,0"/>
         <Button x:Name="bcitButton" Content="BCIT" Grid.Row="0" Margin="10,6,10,9"/>
-        <Button x:Name="createButton" Content="Create" Grid.Column="2" Margin="9.5,5,9.5,10" RenderTransformOrigin="0.663,0.487"/>
+        <Button x:Name="createButton" Content="Create" Grid.Column="2" Margin="9.5,5,9.5,10" RenderTransformOrigin="0.663,0.487" Click="createButton_Click"/>
         <Button x:Name="forumButton" Content="Forum" Grid.Column="3" Margin="10.5,5,10,10" RenderTransformOrigin="0.663,0.487"/>
         <Button x:Name="upcomingButton" Content="Upcoming" Grid.Column="4" Margin="9,5,10,10" RenderTransformOrigin="0.663,0.487"/>
         <Button x:Name="userButton" Content="User" Grid.Column="5" Margin="10,5,9.5,10" RenderTransformOrigin="0.663,0.487"/>
-        <ContentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Content="{Binding}"/>
+        <ContentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Content="{Binding}" Height="488" Margin="0,0,-0.5,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

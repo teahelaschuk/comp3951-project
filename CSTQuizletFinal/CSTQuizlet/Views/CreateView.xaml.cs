@@ -24,5 +24,10 @@ namespace CSTQuizlet.Views
         {
             InitializeComponent();
         }
+
+        private void multipleChoiceItem_MouseMove(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("Chose Multiple Choice");
+        }
     }
 }

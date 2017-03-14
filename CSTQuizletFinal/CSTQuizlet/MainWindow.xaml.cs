@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CSTQuizlet.ViewModels;
 
 namespace CSTQuizlet
 {
@@ -25,14 +26,9 @@ namespace CSTQuizlet
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void createButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void searchViewButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            DataContext = new CreateViewModel();
         }
     }
 }
