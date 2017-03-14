@@ -12,3 +12,6 @@ c:\users\teah\documents\visual studio 2015\Projects\TestingCSTDB\TestingCSTDB\ob
 c:\users\teah\documents\visual studio 2015\Projects\TestingCSTDB\TestingCSTDB\obj\Debug\TestingCSTDB.csproj.GenerateResource.Cache
 c:\users\teah\documents\visual studio 2015\Projects\TestingCSTDB\TestingCSTDB\obj\Debug\TestingCSTDB.exe
 c:\users\teah\documents\visual studio 2015\Projects\TestingCSTDB\TestingCSTDB\obj\Debug\TestingCSTDB.pdb
+C:\Users\Lancelei\Source\Repos\comp3951-project\TestingCSTDB\TestingCSTDB\bin\Debug\TestingCSTDB.exe.config
+C:\Users\Lancelei\Source\Repos\comp3951-project\TestingCSTDB\TestingCSTDB\obj\Debug\TestingCSTDB.exe
+C:\Users\Lancelei\Source\Repos\comp3951-project\TestingCSTDB\TestingCSTDB\obj\Debug\TestingCSTDB.pdb

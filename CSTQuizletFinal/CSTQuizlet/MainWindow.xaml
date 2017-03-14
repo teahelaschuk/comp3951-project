@@ -1,0 +1,71 @@
+﻿<Window x:Class="CSTQuizlet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSTQuizlet"
+        xmlns:viewmodels="clr-namespace:CSTQuizlet.ViewModels"
+        xmlns:views="clr-namespace:CSTQuizlet.Views"
+        mc:Ignorable="d"
+        Title="CST QUizlet" Height="614.035" Width="780.439" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Background="Cornsilk" Grid.Row="1" Grid.Column="0" Grid.RowSpan="5">
+            <TreeView Background="#FFC0D541">
+                <TreeViewItem Header="Level 1" Foreground="White">
+                    <Button Content="COMP1100"/>
+                    <Button Content="COMP1111"/>
+                    <Button Content="COMP1113"/>
+                    <Button Content="COMM1116"/>
+                    <Button Content="COMP1536"/>
+                    <Button Content="COMP1510"/>
+                    <Button Content="BUSA2526"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Level 2" Foreground="White">
+                    <Button Content="COMP2216"/>
+                    <Button Content="COMP2121"/>
+                    <Button Content="COMP2510"/>
+                    <Button Content="COMP2526"/>
+                    <Button Content="COMP2721"/>
+                    <Button Content="COMP2910"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Level 3" Foreground="White">
+                    <Button Content="COMP3512"/>
+                    <Button Content="COMP3711"/>
+                    <Button Content="COMP3721"/>
+                    <Button Content="COMP3760"/>
+                    <Button Content="COMP3900"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Level 4" Foreground="White">
+                    <Button Content="COMP2510"/>
+                    <Button Content="COMP2526"/>
+                    <Button Content="COMP2721"/>
+                </TreeViewItem>
+            </TreeView>
+        </DockPanel>
+        <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Fill="#05406A" Margin="0,0,-0.5,0"/>
+        <Button x:Name="bcitButton" Content="BCIT" Grid.Row="0" Margin="10,6,10,9"/>
+        <Button x:Name="createButton" Content="Create" Grid.Column="2" Margin="9.5,5,9.5,10" RenderTransformOrigin="0.663,0.487"/>
+        <Button x:Name="forumButton" Content="Forum" Grid.Column="3" Margin="10.5,5,10,10" RenderTransformOrigin="0.663,0.487"/>
+        <Button x:Name="upcomingButton" Content="Upcoming" Grid.Column="4" Margin="9,5,10,10" RenderTransformOrigin="0.663,0.487"/>
+        <Button x:Name="userButton" Content="User" Grid.Column="5" Margin="10,5,9.5,10" RenderTransformOrigin="0.663,0.487"/>
+        <ContentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Content="{Binding}"/>
+    </Grid>
+</Window>

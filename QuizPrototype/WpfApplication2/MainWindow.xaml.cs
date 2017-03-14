@@ -137,7 +137,7 @@ namespace WpfApplication2
             pointsLabel.Content = score;
             if (questNum >= quiz.Questions.Count())
             {
-                MessageBox.Show("Points: " + score);
+                MessageBox.Show("Points: " + score + " out of " + quiz.Questions.Count());
                 Close();
             }
             else
@@ -149,6 +149,7 @@ namespace WpfApplication2
                 }
                 answerLabel.Visibility = Visibility.Hidden;
                 start();
+
             }
 
         }
