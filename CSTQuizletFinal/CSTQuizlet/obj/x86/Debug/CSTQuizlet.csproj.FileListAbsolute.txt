@@ -42,3 +42,4 @@ C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.g.resources
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.Properties.Resources.resources
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.csproj.GenerateResource.Cache
+C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.csprojResolveAssemblyReference.cache

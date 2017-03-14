@@ -7,7 +7,7 @@
         xmlns:viewmodels="clr-namespace:CSTQuizlet.ViewModels"
         xmlns:views="clr-namespace:CSTQuizlet.Views"
         mc:Ignorable="d"
-        Title="CST QUizlet" Height="614.035" Width="780.439" WindowStartupLocation="CenterScreen">
+        Title="CST QUizlet" Height="614.035" Width="780.439" WindowStartupLocation="CenterScreen" Background="#FF97DECA">
     <Window.Resources>
         <DataTemplate x:Name="createViewTemplate" DataType="{x:Type viewmodels:CreateViewModel}">
             <views:CreateView DataContext="{Binding}"/>
@@ -72,6 +72,6 @@
         <Button x:Name="forumButton" Content="Forum" Grid.Column="3" Margin="10.5,5,10,10" RenderTransformOrigin="0.663,0.487"/>
         <Button x:Name="upcomingButton" Content="Upcoming" Grid.Column="4" Margin="9,5,10,10" RenderTransformOrigin="0.663,0.487"/>
         <Button x:Name="userButton" Content="User" Grid.Column="5" Margin="10,5,9.5,10" RenderTransformOrigin="0.663,0.487"/>
-        <ContentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Content="{Binding}" Height="488" Margin="0,0,-0.5,0" VerticalAlignment="Top"/>
+        <ContentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Content="{Binding}" Background="#FF82D3B3" />
     </Grid>
 </Window>

@@ -25,9 +25,42 @@ namespace CSTQuizlet.Views
             InitializeComponent();
         }
 
-        private void multipleChoiceItem_MouseMove(object sender, MouseEventArgs e)
+
+        private void answerTypeComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            MessageBox.Show("Chose Multiple Choice");
+            // 0 = Multiple Choice
+            // 1 = Short Answer
+            // 2 = True/False
+
+            switch(answerTypeComboBox.SelectedIndex.ToString())
+            {
+                case "0":
+                    multiChoiceView.Visibility = Visibility.Visible;
+                    shortAnswerView.Visibility = Visibility.Collapsed;
+                    trueFalseView.Visibility = Visibility.Collapsed;
+                    break;
+                case "1":
+                    multiChoiceView.Visibility = Visibility.Collapsed;
+                    shortAnswerView.Visibility = Visibility.Visible;
+                    trueFalseView.Visibility = Visibility.Collapsed;
+                    break;
+                case "2":
+                    multiChoiceView.Visibility = Visibility.Collapsed;
+                    shortAnswerView.Visibility = Visibility.Collapsed;
+                    trueFalseView.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    multiChoiceView.Visibility = Visibility.Collapsed;
+                    shortAnswerView.Visibility = Visibility.Collapsed;
+                    trueFalseView.Visibility = Visibility.Collapsed;
+                    break;
+
+            }
+        }
+
+        private void submitQuestionButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Sent!");
         }
     }
 }
