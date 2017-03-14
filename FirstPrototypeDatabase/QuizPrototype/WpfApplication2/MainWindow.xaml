@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="504.881" Width="699.94" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="questionTitleLabel" Content="Question:" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="questionLabel" Content="Question" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,46,0,0" FontSize="16" />
+        <Label x:Name="label3" Content="Your Answer:" HorizontalAlignment="Left" Margin="91,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.354,0.238" FontSize="14"/>
+        <RadioButton x:Name="radioButton4" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="96,212,0,0"/>
+        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Left" Margin="96,152,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.288,0.03"/>
+        <RadioButton x:Name="radioButton2" Content="RadioButton" HorizontalAlignment="Left" Margin="96,172,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton3" Content="RadioButton" HorizontalAlignment="Left" Margin="96,192,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.277,0.389"/>
+        <Button x:Name="answerButton" Content="Answer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Margin="96,264,0,0" Click="answerButton_Click"/>
+        <Label x:Name="answerTitleLabel" Content="Answer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="280,115,0,0"/>
+        <Label x:Name="answerLabel" Content="Label" HorizontalAlignment="Left" Margin="280,141,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button x:Name="saveButton" Content="Save Quiz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="458,264,0,0" Click="saveButton_Click"/>
+        <Button x:Name="nextButton" Content="Next" HorizontalAlignment="Left" Margin="280,264,0,0" VerticalAlignment="Top" Width="74" Click="nextButton_Click"/>
+        <Label x:Name="pointsTitleLabel" Content="Points:" HorizontalAlignment="Left" Margin="458,115,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="pointsLabel" Content="0" HorizontalAlignment="Left" Margin="508,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.174,-0.018"/>
+
+    </Grid>
+</Window>
