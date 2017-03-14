@@ -43,3 +43,7 @@ C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.Properties.Resources.resources
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.csproj.GenerateResource.Cache
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.csprojResolveAssemblyReference.cache
+C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\Views\QuizView.g.cs
+C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\Views\QuizView.baml
+C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\Views\QuizSearchView.g.cs
+C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\Views\QuizSearchView.baml

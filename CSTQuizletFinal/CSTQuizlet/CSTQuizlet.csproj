@@ -97,6 +97,8 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\CreateViewModel.cs" />
     <Compile Include="ViewModels\ForumViewModel.cs" />
+    <Compile Include="ViewModels\QuizSearchViewModel.cs" />
+    <Compile Include="ViewModels\QuizViewModel.cs" />
     <Compile Include="ViewModels\UpcomingViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\CreateView.xaml.cs">
@@ -104,6 +106,12 @@
     </Compile>
     <Compile Include="Views\ForumView.xaml.cs">
       <DependentUpon>ForumView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuizSearchView.xaml.cs">
+      <DependentUpon>QuizSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuizView.xaml.cs">
+      <DependentUpon>QuizView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UpcomingView.xaml.cs">
       <DependentUpon>UpcomingView.xaml</DependentUpon>
@@ -128,6 +136,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ForumView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuizSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuizView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

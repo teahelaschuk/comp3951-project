@@ -35,7 +35,7 @@
             <ComboBoxItem Name="shortAnswerItem">Short Answer</ComboBoxItem>
             <ComboBoxItem Name="trueFalseItem">True or False</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="submitQuestionButton" Content="Submit" Grid.Column="2" HorizontalAlignment="Left" Margin="18,0,0,98" Grid.Row="3" Width="78" Click="submitQuestionButton_Click" RenderTransformOrigin="0.849,0.452" Height="46" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+        <Button x:Name="submitQuestionButton" Content="Submit" Grid.Column="2" HorizontalAlignment="Left" Margin="24,0,0,47" Grid.Row="4" Width="78" Click="submitQuestionButton_Click" RenderTransformOrigin="0.849,0.452" Height="46" VerticalAlignment="Bottom"/>
         <Canvas Name="multiChoiceView" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="178" Margin="40,83.5,0,0" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Width="221" Grid.Column="1" Visibility="Collapsed">
             <Label x:Name="posAnswersLabel" Content="Possible Answers:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.319" Foreground="White" FontWeight="Bold" FontSize="16" Canvas.Left="16" Canvas.Top="9" />
             <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="Answer" VerticalAlignment="Top" Width="120" Canvas.Left="85" Canvas.Top="42"/>

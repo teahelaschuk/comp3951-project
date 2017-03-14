@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\App.xaml
-51893747225
+7-1971113971
 
-131323561401
+17-856610653
 13738642453
-MainWindow.xaml;Views\CreateView.xaml;Views\ForumView.xaml;Views\UpcomingView.xaml;Views\UserView.xaml;
+MainWindow.xaml;Views\CreateView.xaml;Views\ForumView.xaml;Views\QuizSearchView.xaml;Views\QuizView.xaml;Views\UpcomingView.xaml;Views\UserView.xaml;
 
 False
 

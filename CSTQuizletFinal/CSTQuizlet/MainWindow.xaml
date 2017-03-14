@@ -15,6 +15,18 @@
         <DataTemplate x:Name="forumViewTemplate" DataType="{x:Type viewmodels:ForumViewModel}">
             <views:ForumView DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="upcomingViewTemplate" DataType="{x:Type viewmodels:UpcomingViewModel}">
+            <views:UpcomingView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="userViewTemplate" DataType="{x:Type viewmodels:UserViewModel}">
+            <views:UserView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="quizViewTemplate" DataType="{x:Type viewmodels:QuizViewModel}">
+            <views:QuizView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="quizSearchViewTemplate" DataType="{x:Type viewmodels:QuizSearchViewModel}">
+            <views:QuizSearchView DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,7 +48,7 @@
         <DockPanel Background="Cornsilk" Grid.Row="1" Grid.Column="0" Grid.RowSpan="5">
             <TreeView Background="#1BB094">
                 <TreeViewItem Header="Level 1" Foreground="White">
-                    <Button Content="COMP1100"/>
+                    <Button Content="COMP1100" Click="quizSearchButton_Click"/>
                     <Button Content="COMP1111"/>
                     <Button Content="COMP1113"/>
                     <Button Content="COMM1116"/>
@@ -69,9 +81,9 @@
         <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Fill="#05406A" Margin="0,0,-0.5,0"/>
         <Button x:Name="bcitButton" Content="BCIT" Grid.Row="0" Margin="10,6,10,9"/>
         <Button x:Name="createButton" Content="Create" Grid.Column="2" Margin="9.5,5,9.5,10" RenderTransformOrigin="0.663,0.487" Click="createButton_Click"/>
-        <Button x:Name="forumButton" Content="Forum" Grid.Column="3" Margin="10.5,5,10,10" RenderTransformOrigin="0.663,0.487"/>
-        <Button x:Name="upcomingButton" Content="Upcoming" Grid.Column="4" Margin="9,5,10,10" RenderTransformOrigin="0.663,0.487"/>
-        <Button x:Name="userButton" Content="User" Grid.Column="5" Margin="10,5,9.5,10" RenderTransformOrigin="0.663,0.487"/>
+        <Button x:Name="forumButton" Content="Forum" Grid.Column="3" Margin="10.5,5,10,10" RenderTransformOrigin="0.663,0.487" Click="forumButton_Click"/>
+        <Button x:Name="upcomingButton" Content="Upcoming" Grid.Column="4" Margin="9,5,10,10" RenderTransformOrigin="0.663,0.487" Click="upcomingButton_Click"/>
+        <Button x:Name="userButton" Content="User" Grid.Column="5" Margin="10,5,9.5,10" RenderTransformOrigin="0.663,0.487" Click="userButton_Click"/>
         <ContentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="5" Content="{Binding}" Background="#FF82D3B3" />
     </Grid>
 </Window>
