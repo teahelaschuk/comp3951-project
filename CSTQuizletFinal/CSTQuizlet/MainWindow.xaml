@@ -21,12 +21,13 @@
         <DataTemplate x:Name="userViewTemplate" DataType="{x:Type viewmodels:UserViewModel}">
             <views:UserView DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="quizViewTemplate" DataType="{x:Type viewmodels:QuizViewModel}">
-            <views:QuizView DataContext="{Binding}"/>
-        </DataTemplate>
         <DataTemplate x:Name="quizSearchViewTemplate" DataType="{x:Type viewmodels:QuizSearchViewModel}">
             <views:QuizSearchView DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="quizViewTemplate" DataType="{x:Type viewmodels:QuizViewModel}">
+            <views:QuizView DataContext="{Binding}"/>
+        </DataTemplate>
+
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -47,34 +48,35 @@
         </Grid.RowDefinitions>
         <DockPanel Background="Cornsilk" Grid.Row="1" Grid.Column="0" Grid.RowSpan="5">
             <TreeView Background="#1BB094">
-                <TreeViewItem Header="Level 1" Foreground="White">
-                    <Button Content="COMP1100" Click="quizSearchButton_Click"/>
-                    <Button Content="COMP1111"/>
-                    <Button Content="COMP1113"/>
-                    <Button Content="COMM1116"/>
-                    <Button Content="COMP1536"/>
-                    <Button Content="COMP1510"/>
-                    <Button Content="BUSA2526"/>
+                <TreeViewItem Header="Level 1" Foreground="White" FontSize="22">
+                    <TreeViewItem.Background>
+                        <ImageBrush/>
+                    </TreeViewItem.Background>
+                    <Label Content="COMP1100" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1111" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1113" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1536" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1510" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="BUSA2526" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
                 </TreeViewItem>
-                <TreeViewItem Header="Level 2" Foreground="White">
-                    <Button Content="COMP2216"/>
-                    <Button Content="COMP2121"/>
-                    <Button Content="COMP2510"/>
-                    <Button Content="COMP2526"/>
-                    <Button Content="COMP2721"/>
-                    <Button Content="COMP2910"/>
+                <TreeViewItem Header="Level 2" Foreground="White" FontSize="22">
+                    <Label Content="COMP2216" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2121" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2510" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2526" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2721" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2910" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
                 </TreeViewItem>
-                <TreeViewItem Header="Level 3" Foreground="White">
-                    <Button Content="COMP3512"/>
-                    <Button Content="COMP3711"/>
-                    <Button Content="COMP3721"/>
-                    <Button Content="COMP3760"/>
-                    <Button Content="COMP3900"/>
+                <TreeViewItem Header="Level 3" Foreground="White" FontSize="22">
+                    <Label Content="COMP3512" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3711" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3721" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3760" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
                 </TreeViewItem>
-                <TreeViewItem Header="Level 4" Foreground="White">
-                    <Button Content="COMP2510"/>
-                    <Button Content="COMP2526"/>
-                    <Button Content="COMP2721"/>
+                <TreeViewItem Header="Level 4" Foreground="White" FontSize="22">
+                    <Label Content="BLAW3600" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4100" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4735" MouseDown="quizSearchButton_Click" Width="115" FontSize="16" Foreground="White"/>
                 </TreeViewItem>
             </TreeView>
         </DockPanel>

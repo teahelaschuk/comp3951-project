@@ -33,5 +33,6 @@
         </Canvas>
         <Label x:Name="label2" Content="Click on the topic you want to be quizzed with." Grid.Column="1" Margin="19,73,0,0" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Left" Width="374" Foreground="White" Grid.ColumnSpan="4" FontSize="16" FontWeight="Bold"/>
         <Button x:Name="takeQuizButton" Content="Take Quiz" Grid.Column="2" HorizontalAlignment="Left" Margin="30,9.5,0,0" Grid.Row="4" Width="75" Height="42" VerticalAlignment="Top" Click="takeQuizButton_Click"/>
+        <local:QuizView x:Name="quizView" Grid.ColumnSpan="5" HorizontalAlignment="Left" Grid.RowSpan="5" VerticalAlignment="Top" Height="512" Width="654" Visibility="Hidden"/>
     </Grid>
 </UserControl>

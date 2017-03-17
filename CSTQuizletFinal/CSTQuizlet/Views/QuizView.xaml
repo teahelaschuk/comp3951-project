@@ -20,8 +20,30 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="questionTitleLabel" Content="Question:" HorizontalAlignment="Left" Margin="30,11,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="White"/>
-        <Label x:Name="questionLabel" Content="Change this question based on Whatevah" Grid.Column="1" HorizontalAlignment="Left" Margin="0,11,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White" Grid.ColumnSpan="4" Width="485" FontWeight="Bold" Height="67"/>
-
+        <Label x:Name="questionTitleLabel" Content="Question:" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="White"/>
+        <Label x:Name="questionLabel" Content="Change this question based on Whatevah" Grid.Column="1" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White" Grid.ColumnSpan="4" Width="485" FontWeight="Bold" Height="67"/>
+        <Canvas x:Name="multipleChoiceView" HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="262" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="0,92,0,0">
+            <RadioButton x:Name="radioButton1" Content="Answer1" Canvas.Left="10" Canvas.Top="10" Foreground="White" FontSize="18"/>
+            <RadioButton x:Name="radioButton2" Content="Answer2" Canvas.Left="10" Canvas.Top="63" Foreground="White" FontSize="18"/>
+            <RadioButton x:Name="radioButton3" Content="Answer3" Canvas.Left="10" Canvas.Top="124" Foreground="White" FontSize="18"/>
+            <RadioButton x:Name="radioButton4" Content="Answer4" Canvas.Left="10" Canvas.Top="173" Foreground="White" FontSize="18"/>
+        </Canvas>
+        <Button x:Name="submitButton" Content="Submit" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,0" Grid.Row="3" VerticalAlignment="Top" Width="111" Height="31" RenderTransformOrigin="0.278,0.231"/>
+        <Button x:Name="nextButton" Content="Next" Grid.Column="2" HorizontalAlignment="Left" Margin="10,12,0,0" Grid.Row="3" VerticalAlignment="Top" Width="111" Height="31" RenderTransformOrigin="0.278,0.231"/>
+        <Button x:Name="doneQuizButton" Content="Done Quiz" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="110" Height="31"/>
+        <Button x:Name="quitQuizButton" Content="Quit Quiz" Grid.Column="4" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="110" Height="31"/>
+        <Rectangle Grid.ColumnSpan="2" Grid.Column="3" Margin="25,0,38,20" Grid.Row="1" Grid.RowSpan="2" StrokeThickness="5" Fill="#FF42BB98">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF5FC7A4"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <Label x:Name="label" Content="Progress" Grid.Column="3" HorizontalAlignment="Left" Margin="35,10,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="95" FontWeight="Bold"/>
+        <Label x:Name="label2" Content="Correct:" Grid.Column="3" Margin="60,83,88,88" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Label x:Name="correctStatus" Content="0/0" Grid.Column="4" Margin="10,83,26,88" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Label x:Name="label2_Copy1" Content="Questions:" Grid.Column="3" Margin="35,47,113,21" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Label x:Name="quizStatus" Content="0/0" Grid.Column="4" Margin="10,47,26,21" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold"/>
     </Grid>
 </UserControl>
