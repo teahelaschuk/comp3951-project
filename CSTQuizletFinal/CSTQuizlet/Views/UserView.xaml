@@ -20,8 +20,17 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="nameLabel" Content="Name:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,27,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Segoe UI Black" RenderTransformOrigin="-0.158,0.038"/>
-        <Label x:Name="levelLabel" Content="Level:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,75,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Segoe UI Black" RenderTransformOrigin="-0.158,0.038" Grid.RowSpan="2"/>
-
+        <Image/>
+        <Label x:Name="nameLabel" Content="Name: Lancelei" Grid.Column="1" HorizontalAlignment="Left" Margin="31,31,0,34" Foreground="White" FontSize="20" FontFamily="Segoe UI Black" RenderTransformOrigin="-0.158,0.038" Grid.ColumnSpan="2" Width="221"/>
+        <Label x:Name="levelLabel" Content="Level:" Grid.Column="1" HorizontalAlignment="Left" Margin="31,73,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Segoe UI Black" RenderTransformOrigin="-0.158,0.038" Grid.RowSpan="2"/>
+        <Image Name="userImage" Source="../Images/selfie.jpg" Grid.ColumnSpan="2" Margin="0,31,70,43" Grid.RowSpan="2"/>
+        <Rectangle Grid.Column="3" HorizontalAlignment="Left" Height="166" Margin="21,28,0,0" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="212" Grid.ColumnSpan="2" Fill="#FF82D3B3"/>
+        <Label x:Name="label" Content="Stats" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Margin="21,31,0,0" Foreground="White" FontFamily="Segoe UI Black" FontSize="18"/>
+        <Label x:Name="quizzesFinishedLabel" Content="Quizzes Finished:  0" Grid.Column="3" HorizontalAlignment="Left" Margin="21,65,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2" Width="201"/>
+        <Label x:Name="topicsLabel" Content="Topics Engaged:  0" Grid.Column="3" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2" Width="192" Grid.Row="1"/>
+        <Label x:Name="label1" Content="Favourite Topics" HorizontalAlignment="Left" Margin="65,69,0,0" Grid.Row="2" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="18" Foreground="White" Grid.ColumnSpan="2" Width="165"/>
+        <Label x:Name="topicsLabel1" Content="No Topics Available" HorizontalAlignment="Left" Margin="65,0,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2" Width="192" Grid.Row="3"/>
+        <Label x:Name="label1_Copy" Content="Favourite Questions" Margin="96,69,104,0" Grid.Row="2" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="18" Foreground="White" Grid.ColumnSpan="3" Grid.Column="2"/>
+        <Label x:Name="questionsLabel" Content="No Questions Available" HorizontalAlignment="Left" Margin="96,0,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="3" Width="192" Grid.Row="3" Grid.Column="2"/>
     </Grid>
 </UserControl>

@@ -8,5 +8,9 @@ namespace CSTQuizlet.ViewModels
 {
     class UserViewModel
     {
+        public UserViewModel()
+        {
+            
+        }
     }
 }
