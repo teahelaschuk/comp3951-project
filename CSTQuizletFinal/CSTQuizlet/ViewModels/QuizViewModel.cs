@@ -13,24 +13,8 @@ namespace CSTQuizlet.ViewModels
             get; set;
         }
 
-        public QuizViewModel(string type)
+        public QuizViewModel()
         {
-            Type = type;
-        }
-
-        private void displayQuestion()
-        {
-            switch(Type)
-            {
-                case "multiplechoice":
-                    break;
-                case "truefalse":
-                    break;
-                case "shortanswer":
-                    break;
-                default:
-                    break;
-            }
         }
         
     }

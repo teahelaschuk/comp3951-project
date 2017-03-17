@@ -20,7 +20,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="classTitleLabel" Content="COMP####" Margin="95,10,0,0" Foreground="White" FontSize="36" Width="223" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+        <Label x:Name="classTitleLabel" Content="COMP####" Margin="95,10,0,0" Foreground="White" FontSize="36" Width="223" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" FontFamily="Segoe UI Black"/>
 
         <Label x:Name="label" Content="Topics:" Grid.Column="1" HorizontalAlignment="Left" Margin="53,4.5,0,0" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" Height="34" VerticalAlignment="Top"/>
         <Canvas HorizontalAlignment="Left" Height="293" VerticalAlignment="Top" Width="262" Grid.Column="2" Margin="0,4.5,0,0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3">

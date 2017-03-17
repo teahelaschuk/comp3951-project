@@ -28,7 +28,7 @@ namespace CSTQuizlet.Views
 
         private void takeQuizButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.DataContext = new QuizViewModel("");
+            Application.Current.MainWindow.DataContext = new QuizViewModel();
         }
     }
 }
