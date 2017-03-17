@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CSTQuizlet.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             mc:Ignorable="d" Height="512.643" Width="644.049">
+    <Grid Background="#FFC0D541" >
+        <Label x:Name="label" Content="FORUM" HorizontalAlignment="Left" Margin="54,32,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="No Posts Available Yet" HorizontalAlignment="Left" Margin="54,74,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
     </Grid>
 </UserControl>

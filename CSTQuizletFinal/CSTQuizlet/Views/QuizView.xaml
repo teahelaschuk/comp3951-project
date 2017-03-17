@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CSTQuizlet.Views"
              mc:Ignorable="d" Height="512.643" Width="644.049">
-    <Grid Margin="-10,0,0,-0.5" Background="#FFC0D541" HorizontalAlignment="Right" Width="654" Height="513" VerticalAlignment="Top" >
+    <Grid Background="#FFC0D541" HorizontalAlignment="Right" Width="644" Height="513" VerticalAlignment="Top" >
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
