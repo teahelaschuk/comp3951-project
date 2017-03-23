@@ -42,3 +42,6 @@ C:\Users\Teah\Documents\Visual Studio 2015\Projects\comp3951-project\QuizPrototy
 C:\Users\Teah\Documents\Visual Studio 2015\Projects\comp3951-project\QuizPrototype\WpfApplication2\obj\Debug\WpfApplication2.g.resources
 C:\Users\Teah\Documents\Visual Studio 2015\Projects\comp3951-project\QuizPrototype\WpfApplication2\obj\Debug\WpfApplication2.Properties.Resources.resources
 C:\Users\Teah\Documents\Visual Studio 2015\Projects\comp3951-project\QuizPrototype\WpfApplication2\obj\Debug\QuizPrototype.csproj.GenerateResource.Cache
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\FirstPrototypeDatabase\QuizPrototype\WpfApplication2\bin\Debug\WpfApplication2.exe.config
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\FirstPrototypeDatabase\QuizPrototype\WpfApplication2\obj\Debug\WpfApplication2.exe
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\FirstPrototypeDatabase\QuizPrototype\WpfApplication2\obj\Debug\WpfApplication2.pdb

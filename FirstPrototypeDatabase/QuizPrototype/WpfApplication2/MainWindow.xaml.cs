@@ -25,7 +25,7 @@ namespace WpfApplication2
     {
         //private List<string> answers = new List<string>();
         private List<RadioButton> possibleAnswers = new List<RadioButton>();
-        private List<Quiz> savedQuizzes = new List<Quiz>();
+        //private List<Quiz> savedQuizzes = new List<Quiz>();
         private int questNum;
         private static int score;
         private Quiz quiz;

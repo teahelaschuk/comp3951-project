@@ -47,3 +47,6 @@ C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\Views\QuizView.baml
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\Views\QuizSearchView.g.cs
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\Views\QuizSearchView.baml
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletFinal\CSTQuizlet\bin\x86\Debug\CSTQuizlet.exe.config
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.exe
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizlet.pdb
