@@ -115,3 +115,6 @@ D:\Dropbox\BCIT\Visual Studio\CSTQuizletFinal\CSTQuizlet\obj\x86\Debug\CSTQuizle
 D:\Dropbox\BCIT\Visual Studio\CSTQuizletModifiedAppearance\CSTQuizlet\bin\x86\Debug\CSTQuizlet.exe.config
 D:\Dropbox\BCIT\Visual Studio\CSTQuizletModifiedAppearance\CSTQuizlet\obj\x86\Debug\CSTQuizlet.exe
 D:\Dropbox\BCIT\Visual Studio\CSTQuizletModifiedAppearance\CSTQuizlet\obj\x86\Debug\CSTQuizlet.pdb
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI\CSTQuizlet\bin\x86\Debug\CSTQuizlet.exe.config
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI\CSTQuizlet\obj\x86\Debug\CSTQuizlet.exe
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI\CSTQuizlet\obj\x86\Debug\CSTQuizlet.pdb
