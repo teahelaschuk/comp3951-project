@@ -1,0 +1,11 @@
+D:\Dropbox\BCIT\Visual Studio\WpfCustomChromeLib\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\bin\x86\Debug\Microsoft.Windows.Shell.dll.config
+D:\Dropbox\BCIT\Visual Studio\WpfCustomChromeLib\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\bin\x86\Debug\Microsoft.Windows.Shell.dll
+D:\Dropbox\BCIT\Visual Studio\WpfCustomChromeLib\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\bin\x86\Debug\Microsoft.Windows.Shell.pdb
+D:\Dropbox\BCIT\Visual Studio\WpfCustomChromeLib\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\obj\x86\Debug\Microsoft.Windows.Shell.csprojResolveAssemblyReference.cache
+D:\Dropbox\BCIT\Visual Studio\WpfCustomChromeLib\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\obj\x86\Debug\Microsoft.Windows.Shell.dll
+D:\Dropbox\BCIT\Visual Studio\WpfCustomChromeLib\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\obj\x86\Debug\Microsoft.Windows.Shell.pdb
+D:\Dropbox\BCIT\Visual Studio\CSTQuizletFinal\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\bin\x86\Debug\Microsoft.Windows.Shell.dll.config
+D:\Dropbox\BCIT\Visual Studio\CSTQuizletFinal\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\bin\x86\Debug\Microsoft.Windows.Shell.dll
+D:\Dropbox\BCIT\Visual Studio\CSTQuizletFinal\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\bin\x86\Debug\Microsoft.Windows.Shell.pdb
+D:\Dropbox\BCIT\Visual Studio\CSTQuizletFinal\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\obj\x86\Debug\Microsoft.Windows.Shell.dll
+D:\Dropbox\BCIT\Visual Studio\CSTQuizletFinal\ThirdParty\WPF Shell Integration Library v2\Microsoft.Windows.Shell\obj\x86\Debug\Microsoft.Windows.Shell.pdb
