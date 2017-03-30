@@ -62,7 +62,7 @@
 	</Style>
 
 	<Style TargetType="{x:Type local:CaptionButton}" x:Key="CaptionButtonStyle">
-		<Setter Property="Background" Value="#FF24245B"/>
+		<Setter Property="Background" Value="#FF1F2749"/>
 		<Setter Property="HoverBackground" Value="#FF2C5E6C"/>
         <Setter Property="PressedBackground" Value="#000033"/>
         <Setter Property="Foreground" Value="White" />

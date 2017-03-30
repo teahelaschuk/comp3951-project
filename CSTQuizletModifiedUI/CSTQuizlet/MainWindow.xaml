@@ -4,7 +4,7 @@
     https://www.codeproject.com/Articles/131515/WPF-Custom-Chrome-Library (WindowChrome implementation library)
     http://stackoverflow.com/questions/6792275/how-to-create-custom-window-chrome-in-wpf (question that led to WindowChrome class)
 -->
-    
+
 <Window x:Class="CSTQuizlet.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -18,6 +18,7 @@
         mc:Ignorable="d"
         Title="CST Quizlet" Height="615" Width="780" WindowStartupLocation="CenterScreen" Background="#FF97DECA">
 
+    <!-- Defining the area WindowChrome will use as the resizing border and caption bar-->
     <shell:WindowChrome.WindowChrome>
         <shell:WindowChrome
             ResizeBorderThickness="6"
@@ -48,6 +49,9 @@
         </DataTemplate>
 
     </Window.Resources>
+    <Window.Effect>
+        <DropShadowEffect/>
+    </Window.Effect>
 
     <Grid>
         <Grid.Background>
@@ -56,7 +60,7 @@
                 <GradientStop Color="#FF3E496C" Offset="1" />
             </LinearGradientBrush>
         </Grid.Background>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -75,11 +79,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <!-- Thin background border-->
         <Border CornerRadius="1,1,1,1" Grid.RowSpan="7" Grid.ColumnSpan="6" BorderThickness="1" BorderBrush="LightSteelBlue">
         </Border>
-        
+
+        <!-- Replacement aption buttons -->
         <ccl:CaptionButtons Grid.Column="6"/>
-        
+
         <DockPanel Background="Cornsilk" Grid.Row="2" Grid.Column="0" Grid.RowSpan="5">
             <TreeView>
                 <TreeView.Background>
@@ -118,14 +124,37 @@
             </TreeView>
         </DockPanel>
 
-        
 
-        <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Fill="#AEB0B9" Margin="0,0,-0.5,0"/>
+
+        <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Margin="0,0,-0.5,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF818181" Offset="1"/>
+                    <GradientStop Color="#FF4D4D4D"/>
+                    <GradientStop Color="#FF454659" Offset="0.529"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Margin="0,0,-0.5,0" RadiusX="4" RadiusY="4">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#66818181" Offset="1"/>
+                    <GradientStop Color="#664D4D4D" Offset="0.059"/>
+                    <GradientStop Color="#66434766" Offset="0.399"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
         <Button x:Name="bcitButton" Content="BCIT" Grid.Row="1" Margin="10,5,10,10"/>
-        <Button x:Name="createButton" Content="Create" Grid.Row="1" Grid.Column="2" Margin="10,5,10,10" RenderTransformOrigin="0.663,0.487" Click="createButton_Click"/>
+        <Button x:Name="createButton" Content="Create" Grid.Row="1" Grid.Column="5" Margin="10,5,10,10" RenderTransformOrigin="0.663,0.487" Click="createButton_Click"/>
+        <!--
         <Button x:Name="forumButton" Content="Forum" Grid.Column="3" Grid.Row="1" Margin="10,5,10,10" RenderTransformOrigin="0.663,0.487" Click="forumButton_Click"/>
         <Button x:Name="upcomingButton" Content="Upcoming" Grid.Column="4" Grid.Row="1" Margin="10,5,10,10" RenderTransformOrigin="0.663,0.487" Click="upcomingButton_Click"/>
         <Button x:Name="userButton" Content="User" Grid.Column="5" Grid.Row="1" Margin="10,5,10,10" RenderTransformOrigin="0.663,0.487" Click="userButton_Click"/>
+        -->
+            
+        <!-- Content is served the view selected in grid-->
         <ContentControl Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="6" Content="{Binding}" Background="#FF4B5953" />
     </Grid>
 </Window>
