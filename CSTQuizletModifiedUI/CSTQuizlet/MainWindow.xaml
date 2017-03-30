@@ -87,7 +87,7 @@
         <ccl:CaptionButtons Grid.Column="6"/>
 
         <DockPanel Background="Cornsilk" Grid.Row="2" Grid.Column="0" Grid.RowSpan="5">
-            <TreeView>
+            <TreeView BorderThickness="1" BorderBrush="LightSteelBlue">
                 <TreeView.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF455561" Offset="0"/>
@@ -124,9 +124,7 @@
             </TreeView>
         </DockPanel>
 
-
-
-        <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Margin="0,0,-0.5,0">
+        <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Margin="0,0,0,0">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF818181" Offset="1"/>
@@ -136,7 +134,7 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Margin="0,0,-0.5,0" RadiusX="4" RadiusY="4">
+        <Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Margin="0,0,0,0" RadiusX="4" RadiusY="4">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#66818181" Offset="1"/>
