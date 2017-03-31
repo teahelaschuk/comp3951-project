@@ -30,11 +30,13 @@ namespace CSTQuizlet.Views
     public partial class CreateView : UserControl
     {
         private string type;
+        private bool radioSelected;     
 
         public CreateView()
         {
             InitializeComponent();
             type = "";
+            radioSelected = false;
         }
 
 
@@ -63,7 +65,6 @@ namespace CSTQuizlet.Views
                     break;
                 case "2":
                     type = "TF";
-                    submitQuestionButton.IsEnabled = true;
                     multiChoiceView.Visibility = Visibility.Collapsed;
                     shortAnswerView.Visibility = Visibility.Collapsed;
                     trueFalseView.Visibility = Visibility.Visible;
@@ -103,11 +104,13 @@ namespace CSTQuizlet.Views
                         else
                             altAnswers.Add(entry.Value.Text);
                     }
-                    WriteMC("COMP0000", question, "Whatever", type, 1, 1, correctAnswer, altAnswers);
+                    WriteMC("COMP0000", question, "Whatever", 1, 1, correctAnswer, altAnswers);
                     break;
                 case "1":
+                    WriteSA("COMP0000", question, "Whatever", 1, 1, shortAnswerTextBox.Text);
                     break;
                 case "2":
+                    WriteTF("COMP0000", question, "Whatever", 1, 1);
                     break;
                 default:
                     break;
@@ -124,7 +127,7 @@ namespace CSTQuizlet.Views
         }
 
         /* writes the question, the correct answer, and the alternate answers to the database. */
-        private void WriteMC(string courseID, string question, string topic, string type, int difficulty, int weight, string correctAnswer, List<string> altAnswers)
+        private void WriteMC(string courseID, string question, string topic, int difficulty, int weight, string correctAnswer, List<string> altAnswers)
         {
             try
             {
@@ -139,6 +142,40 @@ namespace CSTQuizlet.Views
             {
                 MessageBox.Show("CreateView: cannot connect to the database.", "Error Occurred");
                 // quit?
+            }
+        }
+
+        /* inserts the question and answer into the database for short answer style questions */
+        private void WriteSA(string courseID, string question, string topic, int difficulty, int weight, string answer)
+        {
+            try
+            {
+                Console.WriteLine("CreateView: connected successfully");
+                int questionID = getNextQuestionID();
+                InsertQuestion(questionID, courseID, question, topic, type, weight, difficulty);
+                InsertAnswer(getNextAnswerID(), questionID, answer, true);
+            }
+            catch
+            {
+                MessageBox.Show("CreateView: cannot connect to the database.", "Error Occurred");
+            }
+        }
+
+        private void WriteTF(string courseID, string question, string topic, int difficulty, int weight)
+        {
+            try
+            {
+                Console.WriteLine("CreateView: connected successfully");
+                int questionID = getNextQuestionID();
+                InsertQuestion(questionID, courseID, question, topic, type, weight, difficulty);
+                if(radioSelected == true)
+                    InsertAnswer(getNextAnswerID(), questionID, "True", radioSelected);
+                else
+                    InsertAnswer(getNextAnswerID(), questionID, "False", radioSelected);
+            }
+            catch
+            {
+                MessageBox.Show("CreateView: cannot connect to the database.", "Error Occurred");
             }
         }
 
@@ -213,5 +250,14 @@ namespace CSTQuizlet.Views
             }
         }
 
+        /* toggles the radioSelected boolean when a user clicks on a true or false radio button in the true/false view */
+        private void tf_Checked(object sender, RoutedEventArgs e)
+        {
+            submitQuestionButton.IsEnabled = true;
+            if ((sender as RadioButton).Content.ToString() == "True")
+                radioSelected = true;
+            else
+                radioSelected = false;
+        }
     }
 }
