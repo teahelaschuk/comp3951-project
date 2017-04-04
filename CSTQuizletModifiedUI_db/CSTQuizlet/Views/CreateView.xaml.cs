@@ -54,7 +54,6 @@ namespace CSTQuizlet.Views
                     multiChoiceView.Visibility = Visibility.Visible;
                     shortAnswerView.Visibility = Visibility.Collapsed;
                     trueFalseView.Visibility = Visibility.Collapsed;
-
                     break;
                 case "1":
                     type = "SA";
@@ -76,7 +75,6 @@ namespace CSTQuizlet.Views
                     shortAnswerView.Visibility = Visibility.Collapsed;
                     trueFalseView.Visibility = Visibility.Collapsed;
                     break;
-
             }
         }
 
