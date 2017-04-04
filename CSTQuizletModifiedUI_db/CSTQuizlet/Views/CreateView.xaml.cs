@@ -107,13 +107,16 @@ namespace CSTQuizlet.Views
                         else
                             altAnswers.Add(entry.Value.Text);
                     }
-                    WriteMC("COMP0000", question, "Whatever", 1, 1, correctAnswer, altAnswers);
+                    //string courseID, string question, string topic, int difficulty, int weight, string correctAnswer, List<string> altAnswers
+                    WriteMC(course, question, topic, 1, 1, correctAnswer, altAnswers);
                     break;
                 case "1":
-                    WriteSA("COMP0000", question, "Whatever", 1, 1, shortAnswerTextBox.Text);
+                    //string courseID, string question, string topic, int difficulty, int weight, string answer
+                    WriteSA(course, question, topic, 1, 1, shortAnswerTextBox.Text);
                     break;
                 case "2":
-                    WriteTF("COMP0000", question, "Whatever", 1, 1);
+                    //string courseID, string question, string topic, int difficulty, int weight
+                    WriteTF(course, question, topic, 1, 1);
                     break;
                 default:
                     break;
