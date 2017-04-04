@@ -242,3 +242,6 @@ C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletModifiedUI_db\CSTQuizl
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletModifiedUI_db\CSTQuizlet\obj\x86\Debug\CSTQuizlet.g.resources
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletModifiedUI_db\CSTQuizlet\obj\x86\Debug\CSTQuizlet.Properties.Resources.resources
 C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletModifiedUI_db\CSTQuizlet\obj\x86\Debug\CSTQuizlet.csproj.GenerateResource.Cache
+C:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI_db\CSTQuizlet\bin\x86\Debug\CSTQuizlet.exe.config
+C:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI_db\CSTQuizlet\obj\x86\Debug\CSTQuizlet.exe
+C:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI_db\CSTQuizlet\obj\x86\Debug\CSTQuizlet.pdb

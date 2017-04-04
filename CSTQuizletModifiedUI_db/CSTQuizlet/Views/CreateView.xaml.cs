@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
-using System.Collections;
 
       /*
        * Table columns, for reference
@@ -38,7 +37,6 @@ namespace CSTQuizlet.Views
             InitializeComponent();
             type = "";
             radioSelected = false;
-            populateClassComboBox();
         }
 
 
@@ -119,7 +117,7 @@ namespace CSTQuizlet.Views
             }
         }
 
-        private void populateClassComboBox()
+        public void topicComboBox_DropDownClosed(object sender, EventArgs e)
         {
             List<string> courses = new List<string>();
             SqlDataReader reader;
