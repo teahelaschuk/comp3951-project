@@ -73,9 +73,6 @@
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem x:Name="class1" Content="Class 1"/>
-            <ComboBoxItem x:Name="class2" Content="Class 2"/>
-            <ComboBoxItem x:Name="class3" Content="Class 3"/>
         </ComboBox>
         <ComboBox x:Name="topicComboBox" DropDownClosed="topicComboBox_DropDownClosed"  Text="Choose Topic" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Margin="107,9.5,0,0" VerticalAlignment="Top" Width="151" Grid.Row="1">
             <ComboBox.Background>

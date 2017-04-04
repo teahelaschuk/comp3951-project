@@ -37,6 +37,7 @@ namespace CSTQuizlet.Views
             InitializeComponent();
             type = "";
             radioSelected = false;
+            populateClassComboBox();
         }
 
 
@@ -54,6 +55,7 @@ namespace CSTQuizlet.Views
                     multiChoiceView.Visibility = Visibility.Visible;
                     shortAnswerView.Visibility = Visibility.Collapsed;
                     trueFalseView.Visibility = Visibility.Collapsed;
+
                     break;
                 case "1":
                     type = "SA";
@@ -75,6 +77,7 @@ namespace CSTQuizlet.Views
                     shortAnswerView.Visibility = Visibility.Collapsed;
                     trueFalseView.Visibility = Visibility.Collapsed;
                     break;
+
             }
         }
 
@@ -115,15 +118,37 @@ namespace CSTQuizlet.Views
             }
         }
 
+        private void populateClassComboBox()
+        {
+            List<string> courses = new List<string>();
+            SqlDataReader reader;
+            using (SqlConnection connection = MainWindow.getConnection())
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT courseID FROM Course WHERE cstLevel = 4", connection))
+                {
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        courses.Add(reader.GetString(reader.GetOrdinal("courseID")));
+                        System.Diagnostics.Debug.WriteLine(reader.GetString(reader.GetOrdinal("courseID")));
+                        classComboBox.Items.Add(reader.GetString(reader.GetOrdinal("courseID")));
+
+                    }
+                }
+            }
+        }
         public void topicComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            // Do Something
+            
         }
 
+        /* Queries all classes from the database */
         public void classComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            // Do Something
+
         }
+        
 
         /* Maps each radio button to the corresponding textbox. */
         void mapAnswers(ref Dictionary<RadioButton, TextBox> choices)
