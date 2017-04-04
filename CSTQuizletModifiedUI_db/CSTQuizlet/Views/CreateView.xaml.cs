@@ -117,6 +117,16 @@ namespace CSTQuizlet.Views
             }
         }
 
+        public void topicComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            // Do Something
+        }
+
+        public void classComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            // Do Something
+        }
+
         /* Maps each radio button to the corresponding textbox. */
         void mapAnswers(ref Dictionary<RadioButton, TextBox> choices)
         {
@@ -260,4 +270,6 @@ namespace CSTQuizlet.Views
                 radioSelected = false;
         }
     }
+
+    
 }

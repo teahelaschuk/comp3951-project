@@ -28,11 +28,11 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="Create a Question" HorizontalAlignment="Left" Margin="106,27,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Grid.ColumnSpan="3" Width="193" FontSize="20" Grid.Column="1" FontFamily="Segoe UI Black"/>
-        <Label x:Name="label1" Content="Question:" HorizontalAlignment="Left" Margin="9.5,0,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Width="84" FontWeight="Bold" Foreground="White" Grid.Column="1"/>
-        <TextBox x:Name="textBox" Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="106.5,8,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Write Question Here..." VerticalAlignment="Top" Width="238"/>
-        <Label x:Name="label2" Content="Answer Type:" HorizontalAlignment="Left" Margin="112,47,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="answerTypeComboBox" DropDownClosed="answerTypeComboBox_DropDownClosed"  Text="Choose Answer Type" Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Margin="106.5,57,0,0" Grid.Row="1" VerticalAlignment="Top" Width="151">
+        <Label x:Name="label" Content="Create a Question" HorizontalAlignment="Left" Margin="106,10,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" Grid.ColumnSpan="3" Width="193" FontSize="20" Grid.Column="1" FontFamily="Segoe UI Black"/>
+        <Label x:Name="label1" Content="Question:" HorizontalAlignment="Left" Margin="17,40.5,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Width="84" FontWeight="Bold" Foreground="White" Grid.Column="1"/>
+        <TextBox x:Name="textBox" Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="106,48.5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Write Question Here..." VerticalAlignment="Top" Width="238"/>
+        <Label x:Name="label2" Content="Answer Type:" HorizontalAlignment="Left" Margin="120,87.5,0,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <ComboBox x:Name="answerTypeComboBox" DropDownClosed="answerTypeComboBox_DropDownClosed"  Text="Choose Answer Type" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Margin="106,97.5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="151" Grid.RowSpan="2">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -44,7 +44,7 @@
             <ComboBoxItem Name="trueFalseItem">True or False</ComboBoxItem>
         </ComboBox>
         <Button x:Name="submitQuestionButton" Content="Submit" Grid.Column="2" HorizontalAlignment="Left" Margin="24,0,0,47" Grid.Row="4" Width="78" Click="submitQuestionButton_Click" RenderTransformOrigin="0.849,0.452" Height="46" VerticalAlignment="Bottom"/>
-        <Canvas Name="multiChoiceView" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="178" Margin="40,83.5,0,0" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Width="221" Grid.Column="1" Visibility="Collapsed">
+        <Canvas Name="multiChoiceView" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="178" Margin="37,17,0,0" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Top" Width="221" Grid.Column="1" Visibility="Collapsed">
             <Label x:Name="posAnswersLabel" Content="Possible Answers:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.21,-0.319" Foreground="White" FontWeight="Bold" FontSize="16" Canvas.Left="16" Canvas.Top="9" />
             <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="Answer" VerticalAlignment="Top" Width="120" Canvas.Left="85" Canvas.Top="42"/>
             <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Answer" VerticalAlignment="Top" Width="120" Canvas.Left="85" Canvas.Top="72"/>
@@ -55,14 +55,38 @@
             <RadioButton x:Name="answer3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.216,-0.086" Canvas.Left="62" Canvas.Top="109"/>
             <RadioButton x:Name="answer4" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="62" Canvas.Top="141"/>
         </Canvas>
-        <Canvas Name="shortAnswerView" Grid.Column="1" HorizontalAlignment="Left" Height="44" Grid.Row="1" VerticalAlignment="Top" Width="324" Grid.ColumnSpan="3" Margin="21,89.5,0,0" Grid.RowSpan="2" Visibility="Collapsed">
+        <Canvas Name="shortAnswerView" Grid.Column="1" HorizontalAlignment="Left" Height="44" Grid.Row="2" VerticalAlignment="Top" Width="324" Grid.ColumnSpan="3" Margin="10,38,0,0" Visibility="Collapsed">
             <Label x:Name="shortAnswerLabel" Content="Answer:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Canvas.Top="2"/>
             <TextBox x:Name="shortAnswerTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Answer" VerticalAlignment="Top" Width="238" Canvas.Left="86" Canvas.Top="10"/>
         </Canvas>
-        <Canvas Name="trueFalseView" Grid.Column="1" HorizontalAlignment="Left" Height="106" Margin="106,83.5,0,0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" Width="121" Grid.ColumnSpan="2" Visibility="Collapsed">
+        <Canvas Name="trueFalseView" Grid.Column="1" HorizontalAlignment="Left" Height="106" Margin="110,38,0,0" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Top" Width="121" Grid.ColumnSpan="2" Visibility="Collapsed">
             <Label x:Name="trueFalseLabel" Content="Answer:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White" Canvas.Left="6" Canvas.Top="8"/>
             <RadioButton x:Name="trueButton" Content="True" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" Canvas.Left="26" Canvas.Top="44"/>
             <RadioButton x:Name="falseButton" Content="False" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White" Canvas.Left="26" Canvas.Top="70"/>
         </Canvas>
+        <Label x:Name="label1_Copy" Content="Class:" HorizontalAlignment="Left" Margin="45,64,0,0" VerticalAlignment="Top" FontSize="16" Width="84" FontWeight="Bold" Foreground="White" Grid.Column="1"/>
+        <Label x:Name="label1_Copy1" Content="Topic:" HorizontalAlignment="Left" Margin="45,3.5,0,0" VerticalAlignment="Top" FontSize="16" Width="84" FontWeight="Bold" Foreground="White" Grid.Column="1" Grid.Row="1"/>
+        <ComboBox x:Name="classComboBox" DropDownClosed="classComboBox_DropDownClosed"  Text="Choose Class" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Margin="107,70,0,0" VerticalAlignment="Top" Width="151">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem x:Name="class1" Content="Class 1"/>
+            <ComboBoxItem x:Name="class2" Content="Class 2"/>
+            <ComboBoxItem x:Name="class3" Content="Class 3"/>
+        </ComboBox>
+        <ComboBox x:Name="topicComboBox" DropDownClosed="topicComboBox_DropDownClosed"  Text="Choose Topic" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Margin="107,9.5,0,0" VerticalAlignment="Top" Width="151" Grid.Row="1">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem x:Name="topic1" Content="Topic 1"/>
+            <ComboBoxItem x:Name="topic2" Content="Topic 2"/>
+            <ComboBoxItem x:Name="topic3" Content="Topic 3"/>
+        </ComboBox>
     </Grid>
 </UserControl>

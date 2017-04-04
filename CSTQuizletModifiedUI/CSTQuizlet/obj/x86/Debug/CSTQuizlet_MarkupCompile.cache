@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI\CSTQuizlet\obj\x86\Debug\
+C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletModifiedUI\CSTQuizlet\obj\x86\Debug\
 CSTQuizlet
 none
 false
 DEBUG;TRACE
-C:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI\CSTQuizlet\App.xaml
+C:\Users\Lancelei\Source\Repos\comp3951-project\CSTQuizletModifiedUI\CSTQuizlet\App.xaml
 7-1971113971
 
 17-856610653
-15-1301321341
+15-830750256
 MainWindow.xaml;Views\CreateView.xaml;Views\ForumView.xaml;Views\QuizSearchView.xaml;Views\QuizView.xaml;Views\UpcomingView.xaml;Views\UserView.xaml;
 
-False
+True
 
