@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using System.Collections;
 
       /*
        * Table columns, for reference
@@ -37,6 +38,7 @@ namespace CSTQuizlet.Views
             InitializeComponent();
             type = "";
             radioSelected = false;
+            populateClassComboBox();
         }
 
 
@@ -117,12 +119,35 @@ namespace CSTQuizlet.Views
             }
         }
 
-        public void topicComboBox_DropDownClosed(object sender, EventArgs e)
+        private void populateClassComboBox()
         {
-            // Do Something
+            List<string> courses = new List<string>();
+            SqlDataReader reader;
+            using (SqlConnection connection = MainWindow.getConnection())
+            {
+                connection.Open();
+                using(SqlCommand cmd = new SqlCommand("SELECT courseID FROM Course WHERE cstLevel = 4", connection))
+                {
+                    reader = cmd.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        courses.Add(reader.GetString(reader.GetOrdinal("courseID")));
+                        System.Diagnostics.Debug.WriteLine(reader.GetString(reader.GetOrdinal("courseID")));
+                        classComboBox.Items.Add(reader.GetString(reader.GetOrdinal("courseID")));
+
+                    }
+                }
+            }
         }
 
+        /* Queries all classes from the database */
         public void classComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
+
+        /* Queries all topics available based on class chosen */
+        public void topicComboBox_DropDownClosed(object sender, EventArgs e)
         {
             // Do Something
         }
