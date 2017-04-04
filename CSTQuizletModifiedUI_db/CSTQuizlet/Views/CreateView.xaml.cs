@@ -129,6 +129,7 @@ namespace CSTQuizlet.Views
                 connection.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT courseID FROM Course", connection))
                 {
+                    classComboBox.Items.Clear();
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
@@ -143,11 +144,18 @@ namespace CSTQuizlet.Views
         /* Queries all classes from the database */
         public void classComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            string course = classComboBox.SelectedValue.ToString();
-            System.Diagnostics.Debug.WriteLine("Selected Course");
-            System.Diagnostics.Debug.WriteLine(course);
-            this.course = course;
-            populateTopicsComboBox();
+            try
+            {
+                string course = classComboBox.SelectedValue.ToString();
+                System.Diagnostics.Debug.WriteLine("Selected Course");
+                System.Diagnostics.Debug.WriteLine(course);
+                this.course = course;
+                populateTopicsComboBox();
+            } catch(NullReferenceException)
+            {
+                System.Diagnostics.Debug.WriteLine("No Course Selected");
+            }
+            
 
         }
 
@@ -155,11 +163,13 @@ namespace CSTQuizlet.Views
         private void populateTopicsComboBox()
         {
             SqlDataReader reader;
+            string command = "SELECT topic FROM CourseTopic WHERE courseID LIKE '%" + course + "%'"; 
             using (SqlConnection connection = MainWindow.getConnection())
             {
                 connection.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT topic FROM CourseTopic", connection))
+                using (SqlCommand cmd = new SqlCommand(command, connection))
                 {
+                    topicComboBox.Items.Clear();
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
@@ -174,10 +184,17 @@ namespace CSTQuizlet.Views
         /* Select topic from topicComboBox */
         public void topicComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            string topic = topicComboBox.SelectedValue.ToString();
-            System.Diagnostics.Debug.WriteLine("Selected Topic");
-            System.Diagnostics.Debug.WriteLine(course);
-            this.topic = topic;
+            try
+            {
+                string topic = topicComboBox.SelectedValue.ToString();
+                System.Diagnostics.Debug.WriteLine("Selected Topic");
+                System.Diagnostics.Debug.WriteLine(course);
+                this.topic = topic;
+            } catch (NullReferenceException)
+            {
+                System.Diagnostics.Debug.WriteLine("No Topic Selected");
+            }
+            
         }
 
         /* Maps each radio button to the corresponding textbox. */
