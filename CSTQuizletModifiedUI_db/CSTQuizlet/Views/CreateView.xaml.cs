@@ -30,7 +30,9 @@ namespace CSTQuizlet.Views
     public partial class CreateView : UserControl
     {
         private string type;
-        private bool radioSelected;     
+        private bool radioSelected;
+        private string course;
+        private string topic;
 
         public CreateView()
         {
@@ -118,19 +120,19 @@ namespace CSTQuizlet.Views
             }
         }
 
+        /* Add all courses from database into classComboBox */
         private void populateClassComboBox()
         {
-            List<string> courses = new List<string>();
             SqlDataReader reader;
             using (SqlConnection connection = MainWindow.getConnection())
             {
                 connection.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT courseID FROM Course WHERE cstLevel = 4", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT courseID FROM Course", connection))
                 {
+                    classComboBox.Items.Clear();
                     reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        courses.Add(reader.GetString(reader.GetOrdinal("courseID")));
                         System.Diagnostics.Debug.WriteLine(reader.GetString(reader.GetOrdinal("courseID")));
                         classComboBox.Items.Add(reader.GetString(reader.GetOrdinal("courseID")));
 
@@ -138,17 +140,62 @@ namespace CSTQuizlet.Views
                 }
             }
         }
-        public void topicComboBox_DropDownClosed(object sender, EventArgs e)
-        {
-            
-        }
 
         /* Queries all classes from the database */
         public void classComboBox_DropDownClosed(object sender, EventArgs e)
         {
+            try
+            {
+                string course = classComboBox.SelectedValue.ToString();
+                System.Diagnostics.Debug.WriteLine("Selected Course");
+                System.Diagnostics.Debug.WriteLine(course);
+                this.course = course;
+                populateTopicsComboBox();
+            } catch(NullReferenceException)
+            {
+                System.Diagnostics.Debug.WriteLine("No Course Selected");
+            }
+            
 
         }
-        
+
+        /* Queries all topics from specified class and adds to topicsComboBox */
+        private void populateTopicsComboBox()
+        {
+            SqlDataReader reader;
+            string command = "SELECT topic FROM CourseTopic WHERE courseID LIKE '%" + course + "%'"; 
+            using (SqlConnection connection = MainWindow.getConnection())
+            {
+                connection.Open();
+                using (SqlCommand cmd = new SqlCommand(command, connection))
+                {
+                    topicComboBox.Items.Clear();
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        System.Diagnostics.Debug.WriteLine(reader.GetString(reader.GetOrdinal("topic")));
+                        topicComboBox.Items.Add(reader.GetString(reader.GetOrdinal("topic")));
+
+                    }
+                }
+            }
+        }
+
+        /* Select topic from topicComboBox */
+        public void topicComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            try
+            {
+                string topic = topicComboBox.SelectedValue.ToString();
+                System.Diagnostics.Debug.WriteLine("Selected Topic");
+                System.Diagnostics.Debug.WriteLine(course);
+                this.topic = topic;
+            } catch (NullReferenceException)
+            {
+                System.Diagnostics.Debug.WriteLine("No Topic Selected");
+            }
+            
+        }
 
         /* Maps each radio button to the corresponding textbox. */
         void mapAnswers(ref Dictionary<RadioButton, TextBox> choices)

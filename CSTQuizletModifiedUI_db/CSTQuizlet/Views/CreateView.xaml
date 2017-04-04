@@ -81,9 +81,6 @@
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem x:Name="topic1" Content="Topic 1"/>
-            <ComboBoxItem x:Name="topic2" Content="Topic 2"/>
-            <ComboBoxItem x:Name="topic3" Content="Topic 3"/>
         </ComboBox>
     </Grid>
 </UserControl>
