@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Stephanie\Source\Repos\comp3951-project\CSTQuizletModifiedUI_db\Libraries\CustomChromeLibrary\obj\Debug\
+D:\Dropbox\BCIT\Visual Studio\comp3951-project\CSTQuizletModifiedUI_db\Libraries\CustomChromeLibrary\obj\Debug\
 CustomChromeLibrary
 none
 false
@@ -12,8 +12,8 @@ DEBUG;TRACE
 
 3613771448
 
-13-970534829
-13-228056097
+131935051482
+13-548771701
 CaptionButtons.xaml;CaptionButtonsWithHelp.xaml;Themes\Generic.xaml;
 
 True

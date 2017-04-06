@@ -136,7 +136,7 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Button x:Name="bcitButton" Content="BCIT" Grid.Row="1" Margin="10,5,10,10" Grid.ColumnSpan="2"/>
+        <Button x:Name="bcitButton" Content="BCIT" Grid.Row="1" Margin="10,5,10,10" Grid.ColumnSpan="2" Click="bcitButton_Click"/>
 
         <Button x:Name="createButton" Content="Create" Grid.Row="1" Grid.Column="6" Margin="10,5,10,10" RenderTransformOrigin="0.663,0.487" Click="createButton_Click"/>
 

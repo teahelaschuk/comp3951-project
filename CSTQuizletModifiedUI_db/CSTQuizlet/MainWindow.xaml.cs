@@ -86,5 +86,10 @@ namespace CSTQuizlet
         {
             DataContext = new QuizSearchViewModel();
         }
+
+        private void bcitButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://learn.bcit.ca/");
+        }
     }
 }
