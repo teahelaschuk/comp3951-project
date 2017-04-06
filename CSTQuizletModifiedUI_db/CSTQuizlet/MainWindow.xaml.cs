@@ -51,8 +51,7 @@ namespace CSTQuizlet
         }
 
         /// <summary>
-        /// Used globally to connect to the database (not sure if this a good design though)
-        /// The calling method is repsonsible for exception handling.
+        /// Used globally to connect to the database. The calling method is repsonsible for exception handling.
         /// </summary>
         /// <returns>a connection to the database</returns>
         public static SqlConnection getConnection()
@@ -66,29 +65,30 @@ namespace CSTQuizlet
             DataContext = new CreateViewModel();
         }
 
-        private void forumButton_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new ForumViewModel();
-        }
-
-        private void upcomingButton_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new UpcomingViewModel();
-        }
-
-        private void userButton_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new UserViewModel();
-        }
-
-        private void quizSearchButton_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new QuizSearchViewModel();
-        }
-
         private void bcitButton_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://learn.bcit.ca/");
         }
+
+        private void takeQuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new QuizSearchViewModel();
+        }
+
+        // out of scope features:
+        //private void forumButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    DataContext = new ForumViewModel();
+        //}
+
+        //private void upcomingButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    DataContext = new UpcomingViewModel();
+        //}
+
+        //private void userButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    DataContext = new UserViewModel();
+        //}
     }
 }

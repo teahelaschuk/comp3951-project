@@ -28,19 +28,82 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="classTitleLabel" Content="COMP####" Margin="95,10,0,0" Foreground="White" FontSize="36" Width="223" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" FontFamily="Segoe UI Black"/>
+        <Label x:Name="classTitleLabel" Content="Select a topic" Margin="95,10,0,0" Foreground="White" FontSize="36" Width="350" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" FontFamily="Segoe UI Black"/>
 
-        <Label x:Name="label" Content="Topics:" Grid.Column="1" HorizontalAlignment="Left" Margin="53,4.5,0,0" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" Height="34" VerticalAlignment="Top"/>
-        <Canvas HorizontalAlignment="Left" Height="293" VerticalAlignment="Top" Width="262" Grid.Column="2" Margin="0,4.5,0,0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3">
-            <CheckBox x:Name="checkBox" Content="Topic Numero 1" Canvas.Left="10" Canvas.Top="10" Foreground="White" FontSize="16"/>
-            <CheckBox x:Name="checkBox_Copy" Content="Topic Numero 2" Canvas.Left="10" Canvas.Top="30" Foreground="White" FontSize="16"/>
-            <CheckBox x:Name="checkBox_Copy1" Content="Topic Numero 3" Canvas.Left="10" Canvas.Top="50" Foreground="White" FontSize="16"/>
-            <CheckBox x:Name="checkBox_Copy2" Content="Topic Numero 4" Canvas.Left="10" Canvas.Top="70" Foreground="White" FontSize="16"/>
-            <CheckBox x:Name="checkBox_Copy3" Content="Topic Numero 5" Canvas.Left="10" Canvas.Top="90" Foreground="White" FontSize="16"/>
-            <CheckBox x:Name="checkBox_Copy4" Content="Topic Numero 6" Canvas.Left="10" Canvas.Top="111" Foreground="White" FontSize="16"/>
+        <Label x:Name="label2" Content="Topics:" Grid.Column="1" HorizontalAlignment="Left" Margin="53,4.5,0,0" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" Height="34" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Canvas x:Name="checkboxContainer"  HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="262" Grid.Column="1" Margin="128.333,10.333,0,0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="4">
         </Canvas>
-        <Label x:Name="label2" Content="Click on the topic you want to be quizzed with." Grid.Column="1" Margin="19,73,0,0" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Left" Width="374" Foreground="White" Grid.ColumnSpan="4" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="takeQuizButton" Content="Take Quiz" Grid.Column="2" HorizontalAlignment="Left" Margin="30,9.5,0,0" Grid.Row="4" Width="75" Height="42" VerticalAlignment="Top" Click="takeQuizButton_Click"/>
+        <Canvas x:Name="checkboxContainer2"  HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="262" Grid.Column="3" Margin="0,10.333,0,0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="4">
+        </Canvas>
+
+        <Label x:Name="label3" Content="Click on the topic you want to be quizzed with." Grid.Column="1" Margin="19,73,0,0" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Left" Width="374" Foreground="White" Grid.ColumnSpan="4" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="takeQuizButton" Content="Take Quiz" Grid.Column="2" HorizontalAlignment="Left" Margin="30,9.5,0,0" Grid.Row="4" Width="75" Height="42" VerticalAlignment="Top" Click="takeQuizButton_Click" IsEnabled="False"/>
         <local:QuizView x:Name="quizView" Grid.ColumnSpan="5" HorizontalAlignment="Left" Grid.RowSpan="5" VerticalAlignment="Top" Height="512" Width="654" Visibility="Hidden"/>
+        <DockPanel Background="Cornsilk" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="1">
+            <TreeView BorderThickness="1,0,0,1">
+                <TreeView.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF455561" Offset="0"/>
+                        <GradientStop Color="#FF3A435E" Offset="1"/>
+                    </LinearGradientBrush>
+                </TreeView.Background>
+                <TreeViewItem Header="Level 1" Foreground="White" FontSize="22" FontFamily="Miriam">
+                    <Label Content="BUSA2720" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMM1116" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1100" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1111" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1113" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1510" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP1536" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+
+                </TreeViewItem>
+                <TreeViewItem Header="Level 2" Foreground="White" FontSize="22" FontFamily="Miriam">
+                    <Label Content="COMM2216" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2121" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2510" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2526" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2714" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP2721" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Level 3" Foreground="White" FontSize="22" FontFamily="Miriam">
+                    <Label Content="COMP3512" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3711" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3717" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3721" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3760" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3770" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3910" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3931" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3940" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4951" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3962" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3775" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3980" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4925" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                </TreeViewItem>
+                <TreeViewItem Header="Level 4" Foreground="White" FontSize="22" FontFamily="Miriam">
+                    <Label Content="BLAW3600" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4560" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4711" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4735" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4870" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4911" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4915" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4921" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4932" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4941" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4945" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4952" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4956" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4964" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4968" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4976" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4977" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4981" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4985" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP4995" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                </TreeViewItem>
+            </TreeView>
+        </DockPanel>
     </Grid>
 </UserControl>
