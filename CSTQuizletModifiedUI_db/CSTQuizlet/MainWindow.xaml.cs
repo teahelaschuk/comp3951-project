@@ -61,7 +61,6 @@ namespace CSTQuizlet
             return new SqlConnection(connectionString);
         }
 
-
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new CreateViewModel();
@@ -85,6 +84,11 @@ namespace CSTQuizlet
         private void quizSearchButton_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new QuizSearchViewModel();
+        }
+
+        private void bcitButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://learn.bcit.ca/");
         }
     }
 }

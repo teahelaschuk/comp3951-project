@@ -4,8 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CSTQuizlet.Views"
-             mc:Ignorable="d" Height="512.643" Width="644.049">
-    <Grid Background="#FFC0D541" HorizontalAlignment="Right" Width="644" Height="513" VerticalAlignment="Top" >
+             mc:Ignorable="d" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid MinWidth="644" MinHeight="513">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.4,1" StartPoint="0.6,0">
+                <GradientStop Color="#FF393E59"/>
+                <GradientStop Color="#FF183E61" Offset="0.25"/>
+                <GradientStop Color="#FF344E66" Offset="0.5"/>
+                <GradientStop Color="#FF39415D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
