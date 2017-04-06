@@ -5,7 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CSTQuizlet.Views"
              mc:Ignorable="d" MinHeight="512.643" MinWidth="644.049" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-    <Grid Background="#FFC0D541">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.4,1" StartPoint="0.6,0">
+                <GradientStop Color="#FF393E59"/>
+                <GradientStop Color="#FF183E61" Offset="0.25"/>
+                <GradientStop Color="#FF344E66" Offset="0.5"/>
+                <GradientStop Color="#FF39415D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
