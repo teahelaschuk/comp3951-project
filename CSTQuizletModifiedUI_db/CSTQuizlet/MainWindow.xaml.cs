@@ -61,7 +61,6 @@ namespace CSTQuizlet
             return new SqlConnection(connectionString);
         }
 
-
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new CreateViewModel();

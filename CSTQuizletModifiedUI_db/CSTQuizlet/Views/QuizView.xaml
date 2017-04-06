@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CSTQuizlet.Views"
-             mc:Ignorable="d" Height="512.643" Width="644.049">
-    <Grid Background="#FFC0D541" HorizontalAlignment="Right" Width="644" Height="513" VerticalAlignment="Top" >
+             mc:Ignorable="d" MinHeight="512.643" MinWidth="644.049" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid Background="#FFC0D541">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>

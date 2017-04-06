@@ -16,7 +16,7 @@
         xmlns:viewmodels="clr-namespace:CSTQuizlet.ViewModels"
         xmlns:views="clr-namespace:CSTQuizlet.Views"
         mc:Ignorable="d"
-        Title="CST Quizlet" Height="615" Width="780" WindowStartupLocation="CenterScreen" Background="#FF808B9B">
+        Title="CST Quizlet" WindowStartupLocation="CenterScreen" Background="#FF808B9B" MinHeight="600" MinWidth="800">
 
     <!-- Defining the area WindowChrome will use as the resizing border and caption bar-->
     <shell:WindowChrome.WindowChrome>
@@ -59,13 +59,13 @@
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="16*"/>
-            <ColumnDefinition Width="113*"/>
-            <ColumnDefinition Width="129*"/>
-            <ColumnDefinition Width="128*"/>
-            <ColumnDefinition Width="129*"/>
-            <ColumnDefinition Width="128*"/>
-            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="16"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -149,6 +149,15 @@
         -->
 
         <!-- Content is served the view selected in grid-->
-        <ContentControl Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="5" Grid.RowSpan="5" Content="{Binding}" Background="#FF4B5953" />
+        <ContentControl 
+            Grid.Row="2" 
+            Grid.Column="2" 
+            Grid.ColumnSpan="5" 
+            Grid.RowSpan="5" 
+            VerticalContentAlignment="Stretch" 
+            HorizontalContentAlignment="Stretch"
+            Content="{Binding}" 
+            Background="#FF4B5953" 
+            ClipToBounds="True" />
     </Grid>
 </Window>
