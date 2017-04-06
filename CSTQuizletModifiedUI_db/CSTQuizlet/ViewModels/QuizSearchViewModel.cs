@@ -8,5 +8,6 @@ namespace CSTQuizlet.ViewModels
 {
     class QuizSearchViewModel
     {
+
     }
 }
