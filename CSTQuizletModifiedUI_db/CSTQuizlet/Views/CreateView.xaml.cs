@@ -264,7 +264,7 @@ namespace CSTQuizlet.Views
                 InsertAnswer(getNextAnswerID(), questionID, answer, true);
             }
             catch
-            {su
+            {
                 MessageBox.Show("CreateView: cannot connect to the database.", "Error Occurred");
             }
         }
