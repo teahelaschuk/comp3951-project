@@ -14,13 +14,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using CSTQuizlet.ViewModels;
 
-      /*
-       * Table columns, for reference
-       * TestBank: questionID, courseID, question, topic, type, difficulty, weight
-       * Answers:  answerID, questionID, answer, correct
-       * Course:   courseID, courseName, cstLevel
-       */
+/*
+ * Table columns, for reference
+ * TestBank: questionID, courseID, question, topic, type, difficulty, weight
+ * Answers:  answerID, questionID, answer, correct
+ * Course:   courseID, courseName, cstLevel
+ */
 
 namespace CSTQuizlet.Views
 {
@@ -94,7 +95,7 @@ namespace CSTQuizlet.Views
             string question = textBox.Text;
             string correctAnswer = "n/a";
             List<string> altAnswers = new List<string>();
-
+            
             switch (answerTypeComboBox.SelectedIndex.ToString())
             {
                 case "0":
@@ -121,6 +122,30 @@ namespace CSTQuizlet.Views
                 default:
                     break;
             }
+
+            hideAndClear();
+
+        }
+
+        /* Clear values and hide fields */
+        private void hideAndClear()
+        {
+            topicComboBox.Items.Clear();
+            textBox.Clear();
+            shortAnswerTextBox.Clear();
+            trueButton.IsChecked = false;
+            falseButton.IsChecked = false;
+            answer1.IsChecked = false;
+            answer2.IsChecked = false;
+            answer3.IsChecked = false;
+            answer4.IsChecked = false;
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            multiChoiceView.Visibility = Visibility.Collapsed;
+            shortAnswerView.Visibility = Visibility.Collapsed;
+            trueFalseView.Visibility = Visibility.Collapsed;
         }
 
         /* Add all courses from database into classComboBox */
@@ -239,7 +264,7 @@ namespace CSTQuizlet.Views
                 InsertAnswer(getNextAnswerID(), questionID, answer, true);
             }
             catch
-            {
+            {su
                 MessageBox.Show("CreateView: cannot connect to the database.", "Error Occurred");
             }
         }
