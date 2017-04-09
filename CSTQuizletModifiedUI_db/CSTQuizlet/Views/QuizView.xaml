@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CSTQuizlet.Views"
              mc:Ignorable="d" MinHeight="512.643" MinWidth="644.049" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-    <Grid>
+    <Grid Initialized="Grid_Initialized">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.4,1" StartPoint="0.6,0">
                 <GradientStop Color="#FF393E59"/>
@@ -29,15 +29,16 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label x:Name="questionTitleLabel" Content="Question:" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="White"/>
-        <Label x:Name="questionLabel" Content="Change this question based on Whatevah" Grid.Column="1" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White" Grid.ColumnSpan="4" Width="485" FontWeight="Bold" Height="67" FontFamily="Segoe UI Black"/>
+        <TextBlock x:Name="questionLabel" Text="Change this question based on Whatevah" TextWrapping="WrapWithOverflow" Grid.Column="1" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White" Grid.ColumnSpan="5" Width="600" FontWeight="Bold" Height="67" FontFamily="Segoe UI Black"/>
         <Canvas x:Name="multipleChoiceView" HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="262" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="0,92,0,0">
+            <TextBox x:Name="inputTextBox" Canvas.Left="10" Canvas.Top="10" Width="350" FontSize="14" Visibility="Hidden"/>
             <RadioButton x:Name="radioButton1" Content="Answer1" Canvas.Left="10" Canvas.Top="10" Foreground="White" FontSize="18"/>
             <RadioButton x:Name="radioButton2" Content="Answer2" Canvas.Left="10" Canvas.Top="63" Foreground="White" FontSize="18"/>
             <RadioButton x:Name="radioButton3" Content="Answer3" Canvas.Left="10" Canvas.Top="124" Foreground="White" FontSize="18"/>
             <RadioButton x:Name="radioButton4" Content="Answer4" Canvas.Left="10" Canvas.Top="173" Foreground="White" FontSize="18"/>
         </Canvas>
-        <Button x:Name="submitButton" Content="Submit" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,0" Grid.Row="3" VerticalAlignment="Top" Width="111" Height="31" RenderTransformOrigin="0.278,0.231"/>
-        <Button x:Name="nextButton" Content="Next" Grid.Column="2" HorizontalAlignment="Left" Margin="10,12,0,0" Grid.Row="3" VerticalAlignment="Top" Width="111" Height="31" RenderTransformOrigin="0.278,0.231"/>
+        <Button x:Name="submitButton" Content="Submit" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,0" Grid.Row="3" VerticalAlignment="Top" Width="111" Height="31" RenderTransformOrigin="0.278,0.231" Click="submitButton_Click"/>
+        <Button x:Name="nextButton" Content="Next" Grid.Column="2" HorizontalAlignment="Left" Margin="10,12,0,0" Grid.Row="3" VerticalAlignment="Top" Width="111" Height="31" RenderTransformOrigin="0.278,0.231" Click="nextButton_Click"/>
         <Button x:Name="doneQuizButton" Content="Done Quiz" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="110" Height="31"/>
         <Button x:Name="quitQuizButton" Content="Quit Quiz" Grid.Column="4" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="110" Height="31"/>
         <Rectangle Grid.ColumnSpan="2" Grid.Column="3" Margin="25,0,38,20" Grid.Row="1" Grid.RowSpan="2" StrokeThickness="5" Fill="#FF42BB98">

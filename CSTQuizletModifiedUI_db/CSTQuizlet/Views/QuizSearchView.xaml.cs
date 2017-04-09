@@ -27,7 +27,7 @@ namespace CSTQuizlet.Views
     public partial class QuizSearchView : UserControl
     {
         StackPanel col1, col2;
-        public string courseID;
+        //public string courseID;
         public QuizSearchView()
         {
             InitializeComponent();
@@ -51,9 +51,14 @@ namespace CSTQuizlet.Views
                     selectedTopics.Add(c.Content.ToString());
 
             if (selectedTopics.Count != 0)
-                Application.Current.MainWindow.DataContext = new QuizViewModel();       // pass selected topics later
+            {
+                DataAccess.SelectedTopics = selectedTopics;
+                Application.Current.MainWindow.DataContext = new QuizViewModel();  
+            }
             else
+            {
                 MessageBox.Show("Select at least 1 topic to be quizzed on.");
+            }
         }
 
 
@@ -65,8 +70,8 @@ namespace CSTQuizlet.Views
         /// <param name="e"></param>
         private void saveCourseID_Click(object sender, MouseButtonEventArgs e)
         {
-            courseID = (sender as Label).Content.ToString();
-            classTitleLabel.Content = courseID;
+            DataAccess.CourseID = (sender as Label).Content.ToString();
+            classTitleLabel.Content = DataAccess.CourseID;
             getTopics();
             label2.Visibility = Visibility.Visible;
             label3.Visibility = Visibility.Visible;
@@ -85,7 +90,7 @@ namespace CSTQuizlet.Views
             List<string> topics = new List<string>();
             using (SqlConnection connection = MainWindow.getConnection())
             {
-                string query = "SELECT TOPIC FROM CourseTopic WHERE courseID = '" + courseID + "'";
+                string query = "SELECT TOPIC FROM CourseTopic WHERE courseID = '" + DataAccess.CourseID + "'";
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

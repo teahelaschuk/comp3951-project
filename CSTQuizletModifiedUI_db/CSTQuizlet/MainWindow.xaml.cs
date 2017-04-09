@@ -30,6 +30,7 @@ namespace CSTQuizlet
             {
                 Application.Current.Shutdown();
             }
+            
         }
 
         private bool TestDB()

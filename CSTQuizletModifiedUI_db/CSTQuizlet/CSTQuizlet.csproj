@@ -101,6 +101,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Answer.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="QuizQuestion.cs" />
     <Compile Include="ViewModels\CreateViewModel.cs" />
     <Compile Include="ViewModels\ForumViewModel.cs" />
     <Compile Include="ViewModels\QuizSearchViewModel.cs" />
