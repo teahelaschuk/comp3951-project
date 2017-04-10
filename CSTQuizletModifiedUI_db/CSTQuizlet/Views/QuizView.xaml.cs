@@ -144,6 +144,12 @@ namespace CSTQuizlet.Views
                         }
                     }
                 }
+            }          
+            // randomizing answers
+            if(q.Type == "MC")
+            {
+                var rnd = new Random();
+                q.answers = q.answers.OrderBy(item => rnd.Next()).ToList();
             }
         }
 
@@ -171,7 +177,10 @@ namespace CSTQuizlet.Views
                         }
                     }
                 }
-            }
+            }            
+            // randomizing questions
+            var rnd = new Random();
+            questions = questions.OrderBy(item => rnd.Next()).ToList();
         }
 
         /// <summary>
@@ -246,8 +255,6 @@ namespace CSTQuizlet.Views
                 MessageBox.Show("correct answer is: \n" + correctAnswer, "incorrect");
             }
 
-            //correctStatus.Content = currentTotal + "/" + (currentQuestion + 1);
-
             // if it is not the last question, go to the next. if it is the last question, 
             // and the last answer is submitted, call completeQuiz() to display the quiz summary.
             if (nextButton.IsEnabled == true)
@@ -277,6 +284,11 @@ namespace CSTQuizlet.Views
                 if (rb.IsChecked == true)
                     return rb.Content.ToString();
             return "error";
+        }
+
+        private void quitQuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            //
         }
 
         /// <summary>
