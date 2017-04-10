@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CSTQuizlet.Views"
-             mc:Ignorable="d" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+             mc:Ignorable="d" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,1,1">
     <Grid MinWidth="644" MinHeight="513">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.4,1" StartPoint="0.6,0">
                 <GradientStop Color="#FF393E59"/>
-                <GradientStop Color="#FF183E61" Offset="0.25"/>
-                <GradientStop Color="#FF344E66" Offset="0.5"/>
+                <GradientStop Color="#FF2B4064" Offset="0.25"/>
+                <GradientStop Color="#FF405476" Offset="0.5"/>
                 <GradientStop Color="#FF39415D" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
