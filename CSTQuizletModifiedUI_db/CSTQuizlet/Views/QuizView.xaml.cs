@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CSTQuizlet.ViewModels;
 
 namespace CSTQuizlet.Views
 {
@@ -22,8 +23,7 @@ namespace CSTQuizlet.Views
     public partial class QuizView : UserControl
     {
         private List<QuizQuestion> questions;
-        private int currentQuestion;
-        private int currentTotal;
+        private int currentQuestion, currentTotal;
         public QuizView()
         {
             InitializeComponent();
@@ -40,15 +40,17 @@ namespace CSTQuizlet.Views
             currentQuestion = currentTotal = 0;
             if (DataAccess.SelectedTopics.Count > 0)
                 runQuiz();
-        }                
+        }
 
         /// <summary>
         /// Starts the quiz.
         /// </summary>
-        public void runQuiz()
+        private void runQuiz()
         {
             getQuestions();
-            presentQuestion(questions.ElementAt(currentQuestion));            
+            if (questions.Count == 1)
+                nextButton.IsEnabled = false;
+            presentQuestion(questions.ElementAt(currentQuestion));
         }
 
         /// <summary>
@@ -61,6 +63,8 @@ namespace CSTQuizlet.Views
             questionLabel.Text = q.Question;
             getAnswers(q);
             quizStatus.Content = (currentQuestion + 1) + "/" + questions.Count;
+            correctStatus.Content = currentTotal + "/" + (currentQuestion);
+
             switch (q.Type)
             {
                 case "SA":
@@ -178,7 +182,7 @@ namespace CSTQuizlet.Views
         {
             if (DataAccess.SelectedTopics.Count == 1)
                 return "SELECT questionID, question, topic, type, difficulty, weight FROM TestBank WHERE courseID = '" + DataAccess.CourseID + "' AND topic = '" + DataAccess.SelectedTopics.ElementAt(0) + "'";
-            
+
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT questionID, question, topic, type, difficulty, weight FROM TestBank WHERE courseID = '" + DataAccess.CourseID + "' AND topic IN ('");
             for (int i = 0; i < DataAccess.SelectedTopics.Count; i++)
@@ -199,49 +203,60 @@ namespace CSTQuizlet.Views
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
             currentQuestion++;
-            if (currentQuestion == questions.Count)
+            if (currentQuestion == questions.Count - 1)
             {
                 nextButton.IsEnabled = false;
-                submitButton.IsEnabled = false;
             }
-            else
-                presentQuestion(questions.ElementAt(currentQuestion));
+            presentQuestion(questions.ElementAt(currentQuestion));
         }
 
         /// <summary>
         /// Checks the answer.
-        /// to do: SA validation, check T/F in db (correct bit should always be 1)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
-            if(questions.ElementAt(currentQuestion).Type != "SA")
+            string correctAnswer = "";
+            string userAnswer = "";
+
+            // handling MC and TF questions
+            if (questions.ElementAt(currentQuestion).Type != "SA")
             {
-                string selectedAnswer = getSelection();
-                string correctAnswer = "";
-                foreach(QuizAnswer a in questions.ElementAt(currentQuestion).answers)
-                {
+                userAnswer = getSelection();
+                foreach (QuizAnswer a in questions.ElementAt(currentQuestion).answers)
                     if (a.Correct == true)
                         correctAnswer = a.Answer;
-                }
-                if (selectedAnswer == correctAnswer) { 
-                    MessageBox.Show("correct");
-                    currentTotal++;
-                }
-                else
-                {
-                    MessageBox.Show("correct answer is: \n" + correctAnswer, "incorrect");
-                }
-                correctStatus.Content = currentTotal + "/" + (currentQuestion + 1);
-                nextButton_Click(this, null);
-            } 
+            }
+            // handing SA questions
             else
             {
-                // handle SA validation here
+                userAnswer = inputTextBox.Text;
+                correctAnswer = questions.ElementAt(currentQuestion).answers.ElementAt(0).Answer;
             }
+
+            // comparing the user's answer to the database's answer
+            if (userAnswer.Equals(correctAnswer, StringComparison.InvariantCultureIgnoreCase))
+            {
+                MessageBox.Show("correct");
+                currentTotal++;
+            }
+            else
+            {
+                MessageBox.Show("correct answer is: \n" + correctAnswer, "incorrect");
+            }
+
+            //correctStatus.Content = currentTotal + "/" + (currentQuestion + 1);
+
+            // if it is not the last question, go to the next. if it is the last question, 
+            // and the last answer is submitted, call completeQuiz() to display the quiz summary.
+            if (nextButton.IsEnabled == true)
+                nextButton_Click(this, null);
+            else if (currentQuestion == questions.Count-1)
+                completeQuiz();
+
         }
-        
+
         /// <summary>
         /// Cycles through radio buttons to find the user's selected answer for multiple choice and 
         /// true/false style questions
@@ -252,7 +267,7 @@ namespace CSTQuizlet.Views
             List<RadioButton> options = new List<RadioButton>();
             options.Add(radioButton1);
             options.Add(radioButton2);
-            if(questions.ElementAt(currentQuestion).Type == "MC")
+            if (questions.ElementAt(currentQuestion).Type == "MC")
             {
                 options.Add(radioButton3);
                 options.Add(radioButton4);
@@ -262,6 +277,19 @@ namespace CSTQuizlet.Views
                 if (rb.IsChecked == true)
                     return rb.Content.ToString();
             return "error";
+        }
+
+        /// <summary>
+        /// Displays a pop up with a simple quiz summary
+        /// </summary>
+        private void completeQuiz()
+        {
+            double score = Math.Round(((double)currentTotal / (double)questions.Count) * 100, 2);
+            string message = "Score: " + score + "%";
+            correctStatus.Content = currentTotal + "/" + questions.Count;
+
+            if (MessageBox.Show(message, "Quiz Completed", MessageBoxButton.OK) == MessageBoxResult.OK)
+                Console.WriteLine("...");       // navigate away from quiz page
         }
     }
 }

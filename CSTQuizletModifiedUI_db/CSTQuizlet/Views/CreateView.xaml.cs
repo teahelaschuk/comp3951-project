@@ -277,9 +277,9 @@ namespace CSTQuizlet.Views
                 int questionID = getNextQuestionID();
                 InsertQuestion(questionID, courseID, question, topic, type, weight, difficulty);
                 if(radioSelected == true)
-                    InsertAnswer(getNextAnswerID(), questionID, "True", radioSelected);
+                    InsertAnswer(getNextAnswerID(), questionID, "True", true);
                 else
-                    InsertAnswer(getNextAnswerID(), questionID, "False", radioSelected);
+                    InsertAnswer(getNextAnswerID(), questionID, "False", true);
             }
             catch
             {
