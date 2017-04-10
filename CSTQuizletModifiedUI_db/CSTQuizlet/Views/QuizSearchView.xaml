@@ -75,9 +75,9 @@
                     <Label Content="COMP3910" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
                     <Label Content="COMP3931" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
                     <Label Content="COMP3940" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
-                    <Label Content="COMP4951" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3951" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
                     <Label Content="COMP3962" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
-                    <Label Content="COMP3775" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
+                    <Label Content="COMP3975" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
                     <Label Content="COMP3980" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
                     <Label Content="COMP4925" MouseDown="saveCourseID_Click" Width="115" FontSize="16" Foreground="White"/>
                 </TreeViewItem>

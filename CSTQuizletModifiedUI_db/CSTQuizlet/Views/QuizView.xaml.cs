@@ -288,7 +288,7 @@ namespace CSTQuizlet.Views
 
         private void quitQuizButton_Click(object sender, RoutedEventArgs e)
         {
-            //
+            Application.Current.MainWindow.DataContext = new QuizSearchViewModel();
         }
 
         /// <summary>
@@ -301,7 +301,7 @@ namespace CSTQuizlet.Views
             correctStatus.Content = currentTotal + "/" + questions.Count;
 
             if (MessageBox.Show(message, "Quiz Completed", MessageBoxButton.OK) == MessageBoxResult.OK)
-                Console.WriteLine("...");       // navigate away from quiz page
+                quitQuizButton_Click(this, null);
         }
     }
 }
