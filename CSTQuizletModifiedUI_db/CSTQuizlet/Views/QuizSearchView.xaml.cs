@@ -27,7 +27,6 @@ namespace CSTQuizlet.Views
     public partial class QuizSearchView : UserControl
     {
         StackPanel col1, col2;
-        //public string courseID;
         public QuizSearchView()
         {
             InitializeComponent();
@@ -70,12 +69,20 @@ namespace CSTQuizlet.Views
         /// <param name="e"></param>
         private void saveCourseID_Click(object sender, MouseButtonEventArgs e)
         {
-            DataAccess.CourseID = (sender as Label).Content.ToString();
-            classTitleLabel.Content = DataAccess.CourseID;
-            getTopics();
-            label2.Visibility = Visibility.Visible;
-            label3.Visibility = Visibility.Visible;
-            takeQuizButton.IsEnabled = true;
+            try
+            {
+                DataAccess.CourseID = (sender as Label).Content.ToString();
+                classTitleLabel.Content = DataAccess.CourseID;
+                getTopics();
+                label2.Visibility = Visibility.Visible;
+                label3.Visibility = Visibility.Visible;
+                takeQuizButton.IsEnabled = true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error choosing course. Please select a different course.");
+                return;
+            }
         }
         /// <summary>
         /// Creates a list of checkboxes containing all topics covered in the selected course and sends the
@@ -85,25 +92,33 @@ namespace CSTQuizlet.Views
         /// <param name="e"></param>
         public void getTopics()
         {
-            col1.Children.Clear();
-            col2.Children.Clear();
-            List<string> topics = new List<string>();
-            using (SqlConnection connection = MainWindow.getConnection())
+            try
             {
-                string query = "SELECT TOPIC FROM CourseTopic WHERE courseID = '" + DataAccess.CourseID + "'";
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
+                col1.Children.Clear();
+                col2.Children.Clear();
+                List<string> topics = new List<string>();
+                using (SqlConnection connection = MainWindow.getConnection())
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    string query = "SELECT TOPIC FROM CourseTopic WHERE courseID = '" + DataAccess.CourseID + "'";
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            topics.Add(reader.GetString(0));
+                            while (reader.Read())
+                            {
+                                topics.Add(reader.GetString(0));
+                            }
                         }
                     }
                 }
+                updateCheckboxes(ref topics);
             }
-            updateCheckboxes(ref topics);
+            catch (Exception)
+            {
+                MessageBox.Show("Error connecting to course database. Please retry or contact the administrator. ");
+                throw;
+            }
         }
 
         /// <summary>

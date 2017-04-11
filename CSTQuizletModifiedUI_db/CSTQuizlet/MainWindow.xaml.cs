@@ -33,20 +33,32 @@ namespace CSTQuizlet
             
         }
 
+        /// <summary>
+        /// Tests the DB for connection.
+        /// </summary>
+        /// <returns></returns>
         private bool TestDB()
         {
-            using (var connection = getConnection())
+            try
             {
-                try
+                using (var connection = getConnection())
                 {
-                    connection.Open();
-                    Console.WriteLine("Connected successfully.");
+                    try
+                    {
+                        connection.Open();
+                        Console.WriteLine("Connected successfully.");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Cannot connect to the database. Check yer wifi.", "Error Occurred");
+                        return false;
+                    }
                 }
-                catch
-                {
-                    MessageBox.Show("Cannot connect to the database. Check yer wifi.", "Error Occurred");
-                    return false;
-                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
+                return false;
             }
             return true;
         }
@@ -61,35 +73,34 @@ namespace CSTQuizlet
             return new SqlConnection(connectionString);
         }
 
+        /// <summary>
+        /// Begins process to create new quiz question.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new CreateViewModel();
         }
 
+        /// <summary>
+        /// Opens default browser to BCIT D2L website.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bcitButton_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://learn.bcit.ca/");
         }
 
+        /// <summary>
+        /// Begins process of taking quiz.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void takeQuizButton_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new QuizSearchViewModel();
         }
-
-        // out of scope features:
-        //private void forumButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    DataContext = new ForumViewModel();
-        //}
-
-        //private void upcomingButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    DataContext = new UpcomingViewModel();
-        //}
-
-        //private void userButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    DataContext = new UserViewModel();
-        //}
     }
 }

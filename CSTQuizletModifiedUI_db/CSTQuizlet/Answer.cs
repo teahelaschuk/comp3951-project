@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSTQuizlet
 {
+    /// <summary>
+    /// Represents an answer to a quiz question created from the database.
+    /// </summary>
     class QuizAnswer
     {
         private string answer;

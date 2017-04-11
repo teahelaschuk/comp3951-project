@@ -43,7 +43,11 @@ namespace CSTQuizlet.Views
             populateClassComboBox();
         }
 
-
+        /// <summary>
+        /// Chooses the type of question to be created.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void answerTypeComboBox_DropDownClosed(object sender, EventArgs e)
         {
             // 0 = Multiple Choice
@@ -84,11 +88,15 @@ namespace CSTQuizlet.Views
             }
         }
 
-        /* handles the submission of data into the database when the button is clicked. 
-         * multiple choice:
-         *      maps each potential answer to the corresponding text box, and iterates through it
-         *      to find the correct answer. it is stored, and the remaining choices are added to a list. 
-         *      the data is passed to the WriteMC method. */
+        /// <summary>
+        /// Handles the submission of data into the database when the button is clicked. 
+        /// Multiple choice:
+        /// Maps each potential answer to the corresponding text box, and iterates through it
+        /// to find the correct answer.it is stored, and the remaining choices are added to a list.
+        /// the data is passed to the WriteMC method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void submitQuestionButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Sent!");
@@ -127,7 +135,9 @@ namespace CSTQuizlet.Views
 
         }
 
-        /* Clear values and hide fields */
+        /// <summary>
+        /// Clear values and hide fields
+        /// </summary>
         private void hideAndClear()
         {
             topicComboBox.Items.Clear();
@@ -148,28 +158,42 @@ namespace CSTQuizlet.Views
             trueFalseView.Visibility = Visibility.Collapsed;
         }
 
-        /* Add all courses from database into classComboBox */
+        /// <summary>
+        /// Add all courses from database into classComboBox.
+        /// </summary>
         private void populateClassComboBox()
         {
             SqlDataReader reader;
-            using (SqlConnection connection = MainWindow.getConnection())
+            try
             {
-                connection.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT courseID FROM Course", connection))
+                using (SqlConnection connection = MainWindow.getConnection())
                 {
-                    classComboBox.Items.Clear();
-                    reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT courseID FROM Course", connection))
                     {
-                        System.Diagnostics.Debug.WriteLine(reader.GetString(reader.GetOrdinal("courseID")));
-                        classComboBox.Items.Add(reader.GetString(reader.GetOrdinal("courseID")));
+                        classComboBox.Items.Clear();
+                        reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            System.Diagnostics.Debug.WriteLine(reader.GetString(reader.GetOrdinal("courseID")));
+                            classComboBox.Items.Add(reader.GetString(reader.GetOrdinal("courseID")));
 
+                        }
                     }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
+                throw;
+            }
         }
 
-        /* Queries all classes from the database */
+        /// <summary>
+        /// Queries all classes from the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void classComboBox_DropDownClosed(object sender, EventArgs e)
         {
             try
@@ -187,29 +211,43 @@ namespace CSTQuizlet.Views
 
         }
 
-        /* Queries all topics from specified class and adds to topicsComboBox */
+        /// <summary>
+        /// Queries all topics from specified class and adds to topicsComboBox
+        /// </summary>
         private void populateTopicsComboBox()
         {
             SqlDataReader reader;
-            string command = "SELECT topic FROM CourseTopic WHERE courseID LIKE '%" + course + "%'"; 
-            using (SqlConnection connection = MainWindow.getConnection())
+            string command = "SELECT topic FROM CourseTopic WHERE courseID LIKE '%" + course + "%'";
+            try
             {
-                connection.Open();
-                using (SqlCommand cmd = new SqlCommand(command, connection))
+                using (SqlConnection connection = MainWindow.getConnection())
                 {
-                    topicComboBox.Items.Clear();
-                    reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(command, connection))
                     {
-                        System.Diagnostics.Debug.WriteLine(reader.GetString(reader.GetOrdinal("topic")));
-                        topicComboBox.Items.Add(reader.GetString(reader.GetOrdinal("topic")));
+                        topicComboBox.Items.Clear();
+                        reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            System.Diagnostics.Debug.WriteLine(reader.GetString(reader.GetOrdinal("topic")));
+                            topicComboBox.Items.Add(reader.GetString(reader.GetOrdinal("topic")));
 
+                        }
                     }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
+                throw;
+            }
         }
 
-        /* Select topic from topicComboBox */
+        /// <summary>
+        /// Select topic from topicComboBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void topicComboBox_DropDownClosed(object sender, EventArgs e)
         {
             try
@@ -225,7 +263,10 @@ namespace CSTQuizlet.Views
             
         }
 
-        /* Maps each radio button to the corresponding textbox. */
+        /// <summary>
+        /// Maps each radio button to the corresponding textbox.
+        /// </summary>
+        /// <param name="choices"></param>
         void mapAnswers(ref Dictionary<RadioButton, TextBox> choices)
         {
             choices.Add(answer1, textBox1);
@@ -234,7 +275,16 @@ namespace CSTQuizlet.Views
             choices.Add(answer4, textBox4);
         }
 
-        /* writes the question, the correct answer, and the alternate answers to the database. */
+        /// <summary>
+        /// Writes the question, the correct answer, and the alternate answers to the database. 
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <param name="question"></param>
+        /// <param name="topic"></param>
+        /// <param name="difficulty"></param>
+        /// <param name="weight"></param>
+        /// <param name="correctAnswer"></param>
+        /// <param name="altAnswers"></param>
         private void WriteMC(string courseID, string question, string topic, int difficulty, int weight, string correctAnswer, List<string> altAnswers)
         {
             try
@@ -253,7 +303,15 @@ namespace CSTQuizlet.Views
             }
         }
 
-        /* inserts the question and answer into the database for short answer style questions */
+        /// <summary>
+        /// Inserts the question and answer into the database for short answer style questions
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <param name="question"></param>
+        /// <param name="topic"></param>
+        /// <param name="difficulty"></param>
+        /// <param name="weight"></param>
+        /// <param name="answer"></param>
         private void WriteSA(string courseID, string question, string topic, int difficulty, int weight, string answer)
         {
             try
@@ -287,78 +345,133 @@ namespace CSTQuizlet.Views
             }
         }
 
-        /* inserts a single answer into the database */
+        /// <summary>
+        /// Inserts a single answer into the database.
+        /// </summary>
+        /// <param name="answerID"></param>
+        /// <param name="questionID"></param>
+        /// <param name="answer"></param>
+        /// <param name="correct"></param>
         private void InsertAnswer(int answerID, int questionID, string answer, bool correct)
         {
-            using (SqlConnection connection = MainWindow.getConnection())
+            try
             {
-                string query = "INSERT INTO Answers (answerID, questionID, answer, correct) " +
-                               "VALUES (@answerID, @questionID, @answer, @correct) ";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                using (SqlConnection connection = MainWindow.getConnection())
                 {
-                    cmd.Parameters.Add("@answerID", SqlDbType.Int).Value = answerID;
-                    cmd.Parameters.Add("@questionID", SqlDbType.Int).Value = questionID;
-                    cmd.Parameters.Add("@answer", SqlDbType.Text).Value = answer;
-                    cmd.Parameters.Add("@correct", SqlDbType.Bit).Value = correct;
+                    string query = "INSERT INTO Answers (answerID, questionID, answer, correct) " +
+                                   "VALUES (@answerID, @questionID, @answer, @correct) ";
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        cmd.Parameters.Add("@answerID", SqlDbType.Int).Value = answerID;
+                        cmd.Parameters.Add("@questionID", SqlDbType.Int).Value = questionID;
+                        cmd.Parameters.Add("@answer", SqlDbType.Text).Value = answer;
+                        cmd.Parameters.Add("@correct", SqlDbType.Bit).Value = correct;
 
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
+                throw;
             }
         }
 
-        /* inserts a single question into the database */
+        /// <summary>
+        /// Inserts a single question into the database.
+        /// </summary>
+        /// <param name="questionID"></param>
+        /// <param name="courseID"></param>
+        /// <param name="question"></param>
+        /// <param name="topic"></param>
+        /// <param name="type"></param>
+        /// <param name="weight"></param>
+        /// <param name="difficulty"></param>
         private void InsertQuestion(int questionID, string courseID, string question, string topic, string type, int weight, int difficulty)
         {
-            using (SqlConnection connection = MainWindow.getConnection())
+            try
             {
-                string query = "INSERT INTO TestBank (questionID, courseID, question, topic, type, weight, difficulty) " +
-                               "VALUES (@questionID, @courseID, @question, @topic, @type, @weight, @difficulty) ";
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                using (SqlConnection connection = MainWindow.getConnection())
                 {
-                    cmd.Parameters.Add("@questionID", SqlDbType.Int).Value = questionID;
-                    cmd.Parameters.Add("@courseID", SqlDbType.Text).Value = courseID;
-                    cmd.Parameters.Add("@question", SqlDbType.Text).Value = question;
-                    cmd.Parameters.Add("@topic", SqlDbType.Text).Value = topic;
-                    cmd.Parameters.Add("@type", SqlDbType.Text).Value = type;
-                    cmd.Parameters.Add("@weight", SqlDbType.Int).Value = weight;
-                    cmd.Parameters.Add("@difficulty", SqlDbType.Int).Value = difficulty;
+                    string query = "INSERT INTO TestBank (questionID, courseID, question, topic, type, weight, difficulty) " +
+                                   "VALUES (@questionID, @courseID, @question, @topic, @type, @weight, @difficulty) ";
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        cmd.Parameters.Add("@questionID", SqlDbType.Int).Value = questionID;
+                        cmd.Parameters.Add("@courseID", SqlDbType.Text).Value = courseID;
+                        cmd.Parameters.Add("@question", SqlDbType.Text).Value = question;
+                        cmd.Parameters.Add("@topic", SqlDbType.Text).Value = topic;
+                        cmd.Parameters.Add("@type", SqlDbType.Text).Value = type;
+                        cmd.Parameters.Add("@weight", SqlDbType.Int).Value = weight;
+                        cmd.Parameters.Add("@difficulty", SqlDbType.Int).Value = difficulty;
 
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
+                throw;
             }
         }
 
 
-        /* counts the number of values in the answer table. this
-         * number is used as the answerID when inputting new values. */
+        /// <summary>
+        /// Counts the number of values in the answer table. This
+        /// number is used as the answerID when inputting new values.
+        /// </summary>
+        /// <returns></returns>
         private int getNextAnswerID()
         {
-            using (SqlConnection connection = MainWindow.getConnection())
+            try
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Answers;", connection))
+                using (SqlConnection connection = MainWindow.getConnection())
                 {
-                    return Convert.ToInt32(command.ExecuteScalar());
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Answers;", connection))
+                    {
+                        return Convert.ToInt32(command.ExecuteScalar());
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
+                throw;
             }
         }
 
-        /* counts the number of values in the testbank table. */
+        /// <summary>
+        /// Counts the number of values in the testbank table.
+        /// </summary>
+        /// <returns></returns>
         private int getNextQuestionID()
         {
-            using (SqlConnection connection = MainWindow.getConnection())
+            try
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM TestBank;", connection))
+                using (SqlConnection connection = MainWindow.getConnection())
                 {
-                    return Convert.ToInt32(command.ExecuteScalar());
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM TestBank;", connection))
+                    {
+                        return Convert.ToInt32(command.ExecuteScalar());
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
+                throw;
             }
         }
 
-        /* toggles the radioSelected boolean when a user clicks on a true or false radio button in the true/false view */
+        /// <summary>
+        /// Toggles the radioSelected boolean when a user clicks on a true or false radio button in the true/false view
+        /// </summary>
         private void tf_Checked(object sender, RoutedEventArgs e)
         {
             submitQuestionButton.IsEnabled = true;

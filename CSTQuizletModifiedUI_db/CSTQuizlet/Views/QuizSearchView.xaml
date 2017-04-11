@@ -31,15 +31,17 @@
         <Label x:Name="classTitleLabel" Content="Select a topic" Margin="95,10,0,0" Foreground="White" FontSize="36" Width="350" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" FontFamily="Segoe UI Black"/>
 
         <Label x:Name="label2" Content="Topics:" Grid.Column="1" HorizontalAlignment="Left" Margin="53,4.5,0,0" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" Height="34" VerticalAlignment="Top" Visibility="Hidden"/>
-        <Canvas x:Name="checkboxContainer"  HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="262" Grid.Column="1" Margin="128.333,10.333,0,0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="4">
-        </Canvas>
-        <Canvas x:Name="checkboxContainer2"  HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="262" Grid.Column="3" Margin="0,10.333,0,0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="4">
-        </Canvas>
+       
+        <!-- Canvasses to display quiz items -->
+        <Canvas x:Name="checkboxContainer"  HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="262" Grid.Column="1" Margin="128.333,10.333,0,0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="4"></Canvas>
+        <Canvas x:Name="checkboxContainer2"  HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="262" Grid.Column="3" Margin="0,10.333,0,0" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="4"></Canvas>
 
         <Label x:Name="label3" Content="Click on the topic you want to be quizzed with." Grid.Column="1" Margin="19,73,0,0" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Left" Width="374" Foreground="White" Grid.ColumnSpan="4" FontSize="16" FontWeight="Bold"/>
         <Button x:Name="takeQuizButton" Content="Take Quiz" Grid.Column="2" HorizontalAlignment="Left" Margin="30,9.5,0,0" Grid.Row="4" Width="75" Height="42" VerticalAlignment="Top" Click="takeQuizButton_Click" IsEnabled="False"/>
         <local:QuizView x:Name="quizView" Grid.ColumnSpan="5" HorizontalAlignment="Left" Grid.RowSpan="5" VerticalAlignment="Top" Height="512" Width="654" Visibility="Hidden"/>
         <DockPanel Background="Cornsilk" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="1">
+            
+            <!-- TreeView class lists -->
             <TreeView BorderThickness="1,0,0,1">
                 <TreeView.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

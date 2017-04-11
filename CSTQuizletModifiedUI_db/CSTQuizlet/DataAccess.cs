@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CSTQuizlet
 {
+    /// <summary>
+    /// Static class simplifying access to courses in database.
+    /// </summary>
     static class DataAccess
     {
         private static List<string> selectedTopics;

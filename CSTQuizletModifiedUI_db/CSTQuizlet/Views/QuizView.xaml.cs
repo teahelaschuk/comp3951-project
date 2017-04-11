@@ -43,7 +43,7 @@ namespace CSTQuizlet.Views
         }
 
         /// <summary>
-        /// Starts the quiz.
+        /// Starts a new quiz and shows the first question.
         /// </summary>
         private void runQuiz()
         {
@@ -127,7 +127,7 @@ namespace CSTQuizlet.Views
         /// <summary>
         /// Queries the database to find all answers for a specific question.
         /// </summary>
-        /// <param name="q"></param>
+        /// <param name="q">The quiz to operate on. </param>
         private void getAnswers(QuizQuestion q)
         {
             using (SqlConnection connection = MainWindow.getConnection())
@@ -184,9 +184,9 @@ namespace CSTQuizlet.Views
         }
 
         /// <summary>
-        /// Writes an SQl query to find all questions relevant to the course and topics selected.
+        /// Writes an SQL query to find all questions relevant to the course and topics selected.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The SQL query in string format</returns>
         private string getSQLQuery()
         {
             if (DataAccess.SelectedTopics.Count == 1)
@@ -220,47 +220,55 @@ namespace CSTQuizlet.Views
         }
 
         /// <summary>
-        /// Checks the answer.
+        /// Checks the user submitted answer on click.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
-            string correctAnswer = "";
-            string userAnswer = "";
+            try
+            {
+                string correctAnswer = "";
+                string userAnswer = "";
 
-            // handling MC and TF questions
-            if (questions.ElementAt(currentQuestion).Type != "SA")
-            {
-                userAnswer = getSelection();
-                foreach (QuizAnswer a in questions.ElementAt(currentQuestion).answers)
-                    if (a.Correct == true)
-                        correctAnswer = a.Answer;
-            }
-            // handing SA questions
-            else
-            {
-                userAnswer = inputTextBox.Text;
-                correctAnswer = questions.ElementAt(currentQuestion).answers.ElementAt(0).Answer;
-            }
+                // handling MC and TF questions
+                if (questions.ElementAt(currentQuestion).Type != "SA")
+                {
+                    userAnswer = getSelection();
+                    foreach (QuizAnswer a in questions.ElementAt(currentQuestion).answers)
+                        if (a.Correct == true)
+                            correctAnswer = a.Answer;
+                }
+                // handing SA questions
+                else
+                {
+                    userAnswer = inputTextBox.Text;
+                    correctAnswer = questions.ElementAt(currentQuestion).answers.ElementAt(0).Answer;
+                }
 
-            // comparing the user's answer to the database's answer
-            if (userAnswer.Equals(correctAnswer, StringComparison.InvariantCultureIgnoreCase))
-            {
-                MessageBox.Show("correct");
-                currentTotal++;
-            }
-            else
-            {
-                MessageBox.Show("correct answer is: \n" + correctAnswer, "incorrect");
-            }
+                // comparing the user's answer to the database's answer
+                if (userAnswer.Equals(correctAnswer, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    MessageBox.Show("correct");
+                    currentTotal++;
+                }
+                else
+                {
+                    MessageBox.Show("correct answer is: \n" + correctAnswer, "incorrect");
+                }
 
-            // if it is not the last question, go to the next. if it is the last question, 
-            // and the last answer is submitted, call completeQuiz() to display the quiz summary.
-            if (nextButton.IsEnabled == true)
-                nextButton_Click(this, null);
-            else if (currentQuestion == questions.Count-1)
-                completeQuiz();
+                // if it is not the last question, go to the next. if it is the last question, 
+                // and the last answer is submitted, call completeQuiz() to display the quiz summary.
+                if (nextButton.IsEnabled == true)
+                    nextButton_Click(this, null);
+                else if (currentQuestion == questions.Count - 1)
+                    completeQuiz();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error submitting answer. Please retry the quiz.");
+                throw;
+            }
 
         }
 
@@ -286,13 +294,18 @@ namespace CSTQuizlet.Views
             return "error";
         }
 
+        /// <summary>
+        /// Returns to the quiz search window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void quitQuizButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.DataContext = new QuizSearchViewModel();
         }
 
         /// <summary>
-        /// Displays a pop up with a simple quiz summary
+        /// Displays a pop up with a simple quiz summary.
         /// </summary>
         private void completeQuiz()
         {
