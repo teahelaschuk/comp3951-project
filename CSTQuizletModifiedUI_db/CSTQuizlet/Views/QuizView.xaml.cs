@@ -32,8 +32,6 @@ namespace CSTQuizlet.Views
         /// <summary>
         /// Runs when the quiz page is first displayed.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Grid_Initialized(object sender, EventArgs e)
         {
             questions = new List<QuizQuestion>();
@@ -47,43 +45,62 @@ namespace CSTQuizlet.Views
         /// </summary>
         private void runQuiz()
         {
-            getQuestions();
-            if (questions.Count == 1)
-                nextButton.IsEnabled = false;
-            presentQuestion(questions.ElementAt(currentQuestion));
+            try
+            {
+                getQuestions();
+                if (questions.Count == 1)
+                    nextButton.IsEnabled = false;
+                if (questions.ElementAt(currentQuestion) == null)
+                    return;
+                else
+                    presentQuestion(questions.ElementAt(currentQuestion));
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
         }
 
         /// <summary>
         /// Updates the view to display a question in the quiz. The view adapts to accept user input
         /// appropriate for the type of the question.
         /// </summary>
-        /// <param name="q"></param>
         private void presentQuestion(QuizQuestion q)
         {
-            questionLabel.Text = q.Question;
-            getAnswers(q);
-            quizStatus.Content = (currentQuestion + 1) + "/" + questions.Count;
-            correctStatus.Content = currentTotal + "/" + (currentQuestion);
-
-            switch (q.Type)
+            try
             {
-                case "SA":
-                    setupSAView();
-                    break;
-                case "MC":
-                    setupMCView();
-                    radioButton1.Content = q.answers.ElementAt(0).Answer;
-                    radioButton2.Content = q.answers.ElementAt(1).Answer;
-                    radioButton3.Content = q.answers.ElementAt(2).Answer;
-                    radioButton4.Content = q.answers.ElementAt(3).Answer;
-                    break;
-                case "TF":
-                    setupTFView();
-                    radioButton1.Content = "True";
-                    radioButton2.Content = "False";
-                    break;
-                default:
-                    break;
+                questionLabel.Text = q.Question;
+                getAnswers(q);
+                quizStatus.Content = (currentQuestion + 1) + "/" + questions.Count;
+                correctStatus.Content = currentTotal + "/" + (currentQuestion);
+
+                switch (q.Type)
+                {
+                    case "SA":
+                        setupSAView();
+                        break;
+                    case "MC":
+                        setupMCView();
+                        radioButton1.Content = q.answers.ElementAt(0).Answer;
+                        radioButton2.Content = q.answers.ElementAt(1).Answer;
+                        radioButton3.Content = q.answers.ElementAt(2).Answer;
+                        radioButton4.Content = q.answers.ElementAt(3).Answer;
+                        break;
+                    case "TF":
+                        setupTFView();
+                        radioButton1.Content = "True";
+                        radioButton2.Content = "False";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                MessageBox.Show("Error!");
+                return;
             }
         }
 
@@ -211,12 +228,21 @@ namespace CSTQuizlet.Views
         /// <param name="e"></param>
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            currentQuestion++;
-            if (currentQuestion == questions.Count - 1)
+            try
             {
-                nextButton.IsEnabled = false;
+                currentQuestion++;
+                if (currentQuestion == questions.Count - 1)
+                {
+                    nextButton.IsEnabled = false;
+                }
+                presentQuestion(questions.ElementAt(currentQuestion));
             }
-            presentQuestion(questions.ElementAt(currentQuestion));
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Sorry, no more questions in these topics. \nTry adding some!", "Oh no!");
+                return;
+            }
         }
 
         /// <summary>
@@ -267,7 +293,6 @@ namespace CSTQuizlet.Views
             catch (Exception)
             {
                 MessageBox.Show("Error submitting answer. Please retry the quiz.");
-                throw;
             }
 
         }
@@ -276,7 +301,6 @@ namespace CSTQuizlet.Views
         /// Cycles through radio buttons to find the user's selected answer for multiple choice and 
         /// true/false style questions
         /// </summary>
-        /// <returns></returns>
         private string getSelection()
         {
             List<RadioButton> options = new List<RadioButton>();
@@ -297,8 +321,6 @@ namespace CSTQuizlet.Views
         /// <summary>
         /// Returns to the quiz search window.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void quitQuizButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.DataContext = new QuizSearchViewModel();

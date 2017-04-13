@@ -117,7 +117,6 @@ namespace CSTQuizlet.Views
             catch (Exception)
             {
                 MessageBox.Show("Error connecting to course database. Please retry or contact the administrator. ");
-                throw;
             }
         }
 

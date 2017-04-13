@@ -185,7 +185,6 @@ namespace CSTQuizlet.Views
             catch (Exception)
             {
                 MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
-                throw;
             }
         }
 
@@ -239,7 +238,6 @@ namespace CSTQuizlet.Views
             catch (Exception)
             {
                 MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
-                throw;
             }
         }
 
@@ -375,7 +373,6 @@ namespace CSTQuizlet.Views
             catch (Exception)
             {
                 MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
-                throw;
             }
         }
 
@@ -415,7 +412,6 @@ namespace CSTQuizlet.Views
             catch (Exception)
             {
                 MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
-                throw;
             }
         }
 
@@ -441,7 +437,7 @@ namespace CSTQuizlet.Views
             catch (Exception)
             {
                 MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
-                throw;
+                return -1;
             }
         }
 
@@ -465,7 +461,7 @@ namespace CSTQuizlet.Views
             catch (Exception)
             {
                 MessageBox.Show("Error connecting to the database. Please retry or contact the administrator");
-                throw;
+                return -1;
             }
         }
 
