@@ -428,9 +428,9 @@ namespace CSTQuizlet.Views
                 using (SqlConnection connection = MainWindow.getConnection())
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Answers;", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT TOP 1 answerID FROM Answers ORDER BY answerID DESC; ", connection))
                     {
-                        return Convert.ToInt32(command.ExecuteScalar());
+                        return Convert.ToInt32(command.ExecuteScalar()) + 1;
                     }
                 }
             }
@@ -452,9 +452,9 @@ namespace CSTQuizlet.Views
                 using (SqlConnection connection = MainWindow.getConnection())
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM TestBank;", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT TOP 1 questionID FROM TestBank ORDER BY questionID DESC; ", connection))
                     {
-                        return Convert.ToInt32(command.ExecuteScalar());
+                        return Convert.ToInt32(command.ExecuteScalar()) + 1;
                     }
                 }
             }
